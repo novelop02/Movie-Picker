@@ -1,0 +1,45 @@
+.roulette-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.wheel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid #333;
+  overflow: hidden;
+  transform: rotate(0deg);
+  transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  transform-origin: 100% 100%;
+  text-align: center;
+  line-height: 150px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Position segments in a circular layout */
+.segment:nth-child(1) { transform: rotate(0deg); background: #ff6666; }
+.segment:nth-child(2) { transform: rotate(60deg); background: #ffcc66; }
+.segment:nth-child(3) { transform: rotate(120deg); background: #66ff66; }
+.segment:nth-child(4) { transform: rotate(180deg); background: #66ccff; }
+.segment:nth-child(5) { transform: rotate(240deg); background: #cc66ff; }
+.segment:nth-child(6) { transform: rotate(300deg); background: #ff66cc; }
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
