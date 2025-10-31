@@ -29,8 +29,8 @@
 			<a href="/" class="btn btn-ghost text-xl">MoviePicker</a>
 			{#if session !== null}
 				<a href="/user" class="btn btn-ghost">My Page</a>
+				<a href="/" class="btn btn-ghost 2xl">Ruleta</a>
 			{/if}
-			<a href="/" class="btn btn-ghost 2xl">Ruleta</a>
 		</div>
 		<!--Right side of navbar-->
 		<div>
