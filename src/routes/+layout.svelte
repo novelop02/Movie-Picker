@@ -14,9 +14,9 @@
 			await invalidateAll();
 		}
 		if(event === "SIGNED_OUT"){
-		await goto("login");
-		invalidateAll();
-	}
+			await goto("login");
+			invalidateAll();
+		}
 	});
 </script>
 
@@ -26,9 +26,9 @@
 	<div class="navbar max-w-3xl mx-auto justify-between">
 		<!--Left side of navbar-->
 		<div>
-			<a href="/" class="btn btn-ghost text-xl">MoviePicker</a>
+			<a href="/" class="btn btn-ghost text-xl">PokePage</a>
 			{#if session !== null}
-				<a href="/user" class="btn btn-ghost">My Page</a>
+				<a href="/{session.user.email}" class="btn btn-ghost">My Page</a>
 				<a href="/" class="btn btn-ghost 2xl">Ruleta</a>
 			{/if}
 		</div>
