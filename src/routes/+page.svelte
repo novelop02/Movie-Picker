@@ -37,23 +37,6 @@
                 <p class="py-6">Create an account to make your own unique URL</p>
                 <a href="/login" class="btn btn-primary">Create an Account</a>
             {/if}
-
-            {#if pokemonData === undefined}
-                    <p>Loading...</p>
-                {:else}
-                    {#each pokemonData as pokemon}
-                        <div class="card bg-slate-700 m-4 shadow-lg shadow-blue-900">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{pokemon.sprites.front_default}" alt="Pokemon" class="w-32 h-32 mx-auto"/>
-                                    <h2 class="text-white text-2xl font-bold">{pokemon.name}</h2>
-                                    <p class="text-info">{pokemon.types[0].type.name}</p> 
-                                </div>
-                            </div>
-                        </div>
-                    {/each}
-                
-                {/if}
         </div>
     </div>
 </div>
