@@ -142,8 +142,8 @@
                         <p class="text-white p-2">Select your pokemon</p>
                         <div class="grid grid-cols-3 overflow-y-scroll max-h-[600px] m-3">
                             <div class="col-span-3">
-                                <input 
-                                type="text" 
+                                <input
+                                type="text"
                                 class="input input-bordered w-full"
                                 placeholder="Search for a pokemon!"
                                 bind:value={searchInput}
@@ -168,6 +168,7 @@
                             {/each}
                         </div>
                         <button class="btn btn-success" on:click={() => savePageEdits()}>Save Edits</button>
+                        <button class="btn btn-error" on:click={() => isModalOpen = false}>Close</button>
                     </div>
                 </dialog>
             {/if}
