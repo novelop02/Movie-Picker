@@ -29,6 +29,7 @@
 		"@supabase/auth-ui-svelte": "^0.2.9",
 		"@supabase/ssr": "^0.7.0",
 		"@supabase/supabase-js": "^2.78.0",
-		"daisyui": "^5.3.10"
+		"daisyui": "^5.3.10",
+		"lucide-svelte": "^0.552.0"
 	}
 }
