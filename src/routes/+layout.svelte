@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let data;
     import { goto, invalidate, invalidateAll } from "$app/navigation";
 	import { ThemeSupa } from "@supabase/auth-ui-shared";
@@ -22,13 +22,13 @@
 
 
 <!--Navbar-->
-<div class="bg-base-100 justify-between fixed top-0 left-0 right-0">
-	<div class="navbar max-w-3xl mx-auto justify-between">
+<nav class="navbar bg-base-100 shadow-md px-4 max-w-3xl mx-auto justify-between">
+	
 		<!--Left side of navbar-->
 		<div>
-			<a href="/" class="btn btn-ghost text-xl">PokePage</a>
+			<a href="/" class="btn btn-ghost text-xl text-primary">MoviePicker</a>
 			{#if session !== null}
-				<a href="/{session.user.email}" class="btn btn-ghost">My Page</a>
+				<a href="/{session.user.email}" class="btn btn-ghost">Mi Perfil</a>
 				<a href="/" class="btn btn-ghost 2xl">Ruleta</a>
 			{/if}
 		</div>
@@ -42,7 +42,6 @@
 			{/if}
 			
 		</div>
-	</div>
-</div>
+</nav>
 
 <slot></slot>

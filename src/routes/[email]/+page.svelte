@@ -11,10 +11,12 @@
 
     let pokemonlist: any = []
     let pokemonData: any = [] // [{pikachu},{bulbasaur}]
-    let profile: any = {
-        description: "This is your description, feel free to write about yourself",
-        pokemon_ids: [1,2,3]
-    }
+    export let profile: any = {
+        description: "",
+        pokemon_ids: [1,2,3],
+        name: ""
+    };
+
 
     let isModalOpen = false;
     let searchInput = "";
@@ -55,7 +57,10 @@
         pokemonlist = await getPokemonList();
 
         // Try to grab the current profile (noveloop_@outlook.com)
-        const { data: profileData, error: profileError} = await supabase.from("profiles").select("description, pokemon_ids").eq('email',email)
+        const { data: profileData, error: profileError} = await supabase
+            .from("profiles")
+            .select("description, pokemon_ids, name, age")
+            .eq('email',email)
         // if the profileData is undefined AD the current user is noveloop_@outlook.com
         // MAKE A NEW PROFILE
         if(profileData?.length == 0 && email == session?.user?.email){
@@ -67,8 +72,10 @@
         }else{
             console.log("NO PROFILE")
             profile = {
+                name: "",
                 description: "This user does not have a profile yet!",
-                pokemon_ids: []
+                pokemon_ids: [],
+                age:0
             }
         }
         // if profileData exists and it has data in it
@@ -108,7 +115,11 @@
 <div class="hero min-h-screen bg-base-300">
     <div class="hero-content">
         <div class="max-w-2xl text-center">
-            <h1 class="text-white font-bold text-4xl">{email}'s Page</h1>
+            {#if profile.name == ""}
+                <h1 class="text-white font-bold text-4xl">Your Page</h1>
+            {:else}
+                <h1 class="text-white font-bold text-4xl">{profile.name}'s Page</h1>
+            {/if}
             <p class="py-3 max-w-md mx-auto">{profile.description}</p>
             <div class="grid grid-cols-3">
                 {#if pokemonData === undefined}
@@ -132,14 +143,32 @@
                 <button class="btn btn-info" on:click={() => isModalOpen = true}>Edit Page</button>
                 <dialog class="modal min-w-lg" class:modal-open={isModalOpen}>
                     <div class="modal-box">
-                        <h3 class="">Edit Your Profile!</h3>
-                        <p>Here you can make edits to your page</p>
-                        <p class="text-white p-2">Edit your description</p>
-                        <textarea
-                            bind:value={profile.description}
-                            class="textarea textarea-bordered textarea-lg w-full max-w-md h-[300px]"
-                        ></textarea>
+                        <h2 class="font-bold text-xl">Edita tu perfil!</h2>
+                        <p class="p-3">Edita tu página para darle personalidad</p>
+                        <div class=" max-w-md m-3">
+                            <p class="text-left">Nombre:</p>
+                            <input 
+                                type="text" 
+                                class="input input-bordered w-full" 
+                                placeholder="Manuel Soberanis"
+                                bind:value={profile.name}
+                                required>
+                                <p class="text-left pt-4">Edad:</p>
+                            <input 
+                                type="number" 
+                                class="input input-bordered w-full" 
+                                placeholder="17"
+                                bind:value={profile.age}>
+                            <p class="text-white text-left pt-4">Hablanos un poco de ti!</p>
+                            <textarea
+                                bind:value={profile.description}
+                                placeholder="Me gusta la comedia y las peliculas de terror"
+                                class="textarea textarea-bordered w-full max-w-md"
+                            ></textarea>
+                        </div>
+                    
                         <p class="text-white p-2">Select your pokemon</p>
+                        
                         <div class="grid grid-cols-3 overflow-y-scroll max-h-[600px] m-3">
                             <div class="col-span-3">
                                 <input
@@ -168,7 +197,7 @@
                             {/each}
                         </div>
                         <button class="btn btn-success" on:click={() => savePageEdits()}>Save Edits</button>
-                        <button class="btn btn-error" on:click={() => isModalOpen = false}>Close</button>
+                        <button class="btn btn-error"on:click={() => isModalOpen = false}>Close</button>
                     </div>
                 </dialog>
             {/if}
