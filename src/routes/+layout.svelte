@@ -35,7 +35,7 @@
 		<!--Right side of navbar-->
 		<div>
 			{#if session == null}
-				<button on:click={()=>goto("/login")}>Login</button>
+				<a class="btn btn-ghost text-xl" href="/login">Login</a>
 			{:else}
 				<span class="text-white text-lg ml-2">{session.user.email}</span>
 				<button class= "ml-2" on:click={async()=> {await supabase.auth.signOut()}}>Logout</button>
