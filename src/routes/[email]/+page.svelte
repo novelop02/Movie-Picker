@@ -3,6 +3,8 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { getPokemonList,getPokemon } from "$lib/pokemonAPI";
+    import { profile, saveProfile } from "$lib/userInfo.js";
+    import { get } from "svelte/store";
     export let data;
 
     let {supabase,session} = data
@@ -11,12 +13,7 @@
 
     let pokemonlist: any = []
     let pokemonData: any = [] // [{pikachu},{bulbasaur}]
-    let profile: any = {
-        description: "",
-        pokemon_ids: [1,2,3],
-        name: ""
-    };
-
+    let currentProfile = get(profile);
 
     let isModalOpen = false;
     let searchInput = "";
@@ -26,7 +23,7 @@
     async function refreshPokemonData() {
         pokemonData = [];
 
-        profile.pokemon_ids.map(async (id:number)=>{
+        currentProfile.pokemon_ids.map(async (id:number)=>{
             // 1./ bulbassaur
             const data = await getPokemon(id.toString())
             
@@ -36,21 +33,6 @@
                 pokemonData = [ ...pokemonData,data]
             }
         });
-    }
-
-    async function saveProfile(){
-        const { data: profileData, error: profileError} = await supabase.from("profiles").select("*").eq('email',email)
-
-        if(profileData?.length === 0){ // Create a new row
-            const { data, error } = await supabase
-                .from("profiles")
-                .insert({...profile, user_id: session?.user?.id, email: session?.user?.email})
-        }else{ // update the profile row
-            const { data, error } = await supabase
-                .from("profiles")
-                .update(profile) // description, pokemon_id
-                .eq("user_id",session?.user?.id)
-        }
     }
 
     page.subscribe(async() =>{
@@ -68,10 +50,10 @@
             console.log("SAVE PROFILE!");
             await saveProfile();
         }else if (profileData != null && profileData.length > 0){
-            profile = profileData[0]
+            currentProfile = profileData[0]
         }else{
             console.log("NO PROFILE")
-            profile = {
+            currentProfile = {
                 name: "",
                 description: "This user does not have a profile yet!",
                 pokemon_ids: [],
@@ -92,7 +74,7 @@
     }
 
     async function togglePokemon(id: number) {
-        let pokemonIDs = profile.pokemon_ids;
+        let pokemonIDs = currentProfile.pokemon_ids;
         // [1,2,3] "toggle 2" -> [1,3] -. "toggle 2 - [1,2,3]"
 
         // make sure we never have more than 3 pokemon
@@ -108,19 +90,19 @@
             pokemonIDs.push(id);
         }
 
-        profile.pokemon_ids = [...pokemonIDs]
+        currentProfile.pokemon_ids = [...pokemonIDs]
     }
 </script>
 
 <div class="hero min-h-screen bg-base-300">
     <div class="hero-content">
         <div class="max-w-2xl text-center">
-            {#if profile.name == ""}
+            {#if currentProfile.name == ""}
                 <h1 class="text-white font-bold text-4xl">Your Page</h1>
             {:else}
-                <h1 class="text-white font-bold text-4xl">{profile.name}'s Page</h1>
+                <h1 class="text-white font-bold text-4xl">{currentProfile.name}'s Page</h1>
             {/if}
-            <p class="py-3 max-w-md mx-auto">{profile.description}</p>
+            <p class="py-3 max-w-md mx-auto">{currentProfile.description}</p>
             <div class="grid grid-cols-3">
                 {#if pokemonData === undefined}
                     <p>Loading...</p>
@@ -151,17 +133,17 @@
                                 type="text" 
                                 class="input input-bordered w-full" 
                                 placeholder="Manuel Soberanis"
-                                bind:value={profile.name}
+                                bind:value={currentProfile.name}
                                 required>
                                 <p class="text-left pt-4">Edad:</p>
                             <input 
                                 type="number" 
                                 class="input input-bordered w-full" 
                                 placeholder="17"
-                                bind:value={profile.age}>
+                                bind:value={currentProfile.age}>
                             <p class="text-white text-left pt-4">Hablanos un poco de ti!</p>
                             <textarea
-                                bind:value={profile.description}
+                                bind:value={currentProfile.description}
                                 placeholder="Me gusta la comedia y las peliculas de terror"
                                 class="textarea textarea-bordered w-full max-w-md"
                             ></textarea>
@@ -183,7 +165,7 @@
                                     <button 
                                         class={
                                             "card bg-slate-700 h-12 p-1 m-1 justify-center items-center "
-                                            + (Array.isArray(profile.pokemon_ids) && profile.pokemon_ids.includes(index + 1)
+                                            + (Array.isArray(currentProfile.pokemon_ids) && currentProfile.pokemon_ids.includes(index + 1)
                                             ? " border-2 border-blue-600"
                                             : "")
                                             }

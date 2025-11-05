@@ -1,20 +1,19 @@
 <script lang="ts">
     import { getPokemonList,getPokemon } from '$lib/pokemonAPI.js';
     import { page } from '$app/stores';
+    import { get } from 'svelte/store';
+    import { profile } from '$lib/userInfo.js';
     
     export let data;
     let {supabase,session} = data
-	$: ({supabase,session} = data)
+	  $: ({supabase,session} = data)
+    $: email = $page.params.email;
     let pokemonList: any = []
     let pokemonData: any = []
     let allPokemon: any = {
         ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     }
-    let profile: any = {
-        description: "",
-        pokemon_ids: [1,2,3],
-        name: ""
-    };
+    let currentProfile = get(profile)
 
     async function refreshData() {
         const promises = allPokemon.ids.map((id: number) => getPokemon(id.toString()));
@@ -22,17 +21,12 @@
         pokemonData = results;
     }
 
-
     page.subscribe(async() =>{
-        pokemonList = await getPokemonList();
-        await refreshData();
-        console.log(await getPokemon("pikachu"));
-
-        const { data: profileData, error: prfileError} = await supabase
-          .from("profiles")
-          .select("description, pokemon_ids, name, age")
-        
+      pokemonList = await getPokemonList();
+      await refreshData();
     });
+
+    
     
 
 </script>
