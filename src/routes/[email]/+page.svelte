@@ -11,7 +11,7 @@
 
     let pokemonlist: any = []
     let pokemonData: any = [] // [{pikachu},{bulbasaur}]
-    export let profile: any = {
+    let profile: any = {
         description: "",
         pokemon_ids: [1,2,3],
         name: ""
@@ -61,7 +61,7 @@
             .from("profiles")
             .select("description, pokemon_ids, name, age")
             .eq('email',email)
-        // if the profileData is undefined AD the current user is noveloop_@outlook.com
+        // if the profileData is undefined ADD the current user is noveloop_@outlook.com
         // MAKE A NEW PROFILE
         if(profileData?.length == 0 && email == session?.user?.email){
             // saveProfile
