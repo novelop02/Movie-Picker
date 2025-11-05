@@ -147,16 +147,16 @@
                         <p class="p-3">Edita tu página para darle personalidad</p>
                         <div class=" max-w-md m-3">
                             <p class="text-left">Nombre:</p>
-                            <input 
-                                type="text" 
-                                class="input input-bordered w-full" 
+                            <input
+                                type="text"
+                                class="input input-bordered w-full"
                                 placeholder="Manuel Soberanis"
                                 bind:value={profile.name}
                                 required>
                                 <p class="text-left pt-4">Edad:</p>
-                            <input 
-                                type="number" 
-                                class="input input-bordered w-full" 
+                            <input
+                                type="number"
+                                class="input input-bordered w-full"
                                 placeholder="17"
                                 bind:value={profile.age}>
                             <p class="text-white text-left pt-4">Hablanos un poco de ti!</p>
@@ -180,7 +180,7 @@
                             </div>
                             {#each pokemonlist as pokemon,index}
                                 {#if pokemon.name.includes(searchInput)}
-                                    <button 
+                                    <button
                                         class={
                                             "card bg-slate-700 h-12 p-1 m-1 justify-center items-center "
                                             + (Array.isArray(profile.pokemon_ids) && profile.pokemon_ids.includes(index + 1)
