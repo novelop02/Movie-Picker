@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import { page } from '$app/stores';
 
-
+/*
 let {supabase,session} = data
 $: ({supabase,session} = data)
 $: email = $page.params.email;
@@ -40,4 +40,4 @@ export async function saveProfile() { // obtienes el valor actual del store
             .update(profile)
             .eq("user_id", session?.user?.id);
         }
-    }
+    }*/
