@@ -1,19 +1,18 @@
 <script lang="ts">
     import { getPokemonList,getPokemon } from '$lib/pokemonAPI.js';
     import { page } from '$app/stores';
+    import { getUserData } from '$lib/userInfo.js';
     
     export let data;
     let {supabase,session} = data
-	$: ({supabase,session} = data)
+	  $: ({supabase,session} = data)
     let pokemonList: any = []
     let pokemonData: any = []
     let allPokemon: any = {
         ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     }
     let profile: any = {
-        description: "",
-        pokemon_ids: [1,2,3],
-        name: ""
+        
     };
 
     async function refreshData() {
@@ -28,20 +27,16 @@
         await refreshData();
         console.log(await getPokemon("pikachu"));
 
-        const { data: profileData, error: prfileError} = await supabase
-          .from("profiles")
-          .select("description, pokemon_ids, name, age")
-        
+        profile = await getUserData(supabase,session)
     });
     
-
 </script>
 
 
 <div class="min-h-screen bg-base-300 flex flex-col items-center justify-center px-4">
 
   <div class="text-center mb-8 p-5">
-    <h1 class="text-4xl font-bold text-white">Welcome to MoviePicker</h1>
+    <h1 class="text-4xl font-bold text-white">Bienvenido a Movie-Picker</h1>
     {#if session == undefined}
       <p class="text-gray-400 mt-2">Create an account to make your own unique URL</p>
       <button class="btn btn-primary mt-4">Create an Account</button>

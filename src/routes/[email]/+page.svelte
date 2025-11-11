@@ -3,6 +3,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { getPokemonList,getPokemon } from "$lib/pokemonAPI";
+    import { getUserData } from "$lib/userInfo.js";
     export let data;
 
     let {supabase,session} = data
@@ -55,33 +56,7 @@
 
     page.subscribe(async() =>{
         pokemonlist = await getPokemonList();
-
-        // Try to grab the current profile (noveloop_@outlook.com)
-        const { data: profileData, error: profileError} = await supabase
-            .from("profiles")
-            .select("description, pokemon_ids, name, age")
-            .eq('email',email)
-        // if the profileData is undefined ADD the current user is noveloop_@outlook.com
-        // MAKE A NEW PROFILE
-        if(profileData?.length == 0 && email == session?.user?.email){
-            // saveProfile
-            console.log("SAVE PROFILE!");
-            await saveProfile();
-        }else if (profileData != null && profileData.length > 0){
-            profile = profileData[0]
-        }else{
-            console.log("NO PROFILE")
-            profile = {
-                name: "",
-                description: "This user does not have a profile yet!",
-                pokemon_ids: [],
-                age:0
-            }
-        }
-        // if profileData exists and it has data in it
-        // show noveloop_@outlook.com
-
-        // If no data exists, say NO PROFILE
+        profile = await getUserData(supabase,session)
         await refreshPokemonData();
     });
 
@@ -89,6 +64,7 @@
         await saveProfile();
         await refreshPokemonData();
         isModalOpen = false;
+        //location.reload()
     }
 
     async function togglePokemon(id: number) {

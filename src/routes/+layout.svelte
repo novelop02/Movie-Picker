@@ -1,13 +1,14 @@
 <script lang="ts">
 	export let data;
     import { goto, invalidate, invalidateAll } from "$app/navigation";
-	import { ThemeSupa } from "@supabase/auth-ui-shared";
-	import {Auth} from '@supabase/auth-ui-svelte';
+	import { getUserData } from "$lib/userInfo";
+    import { onMount } from "svelte";
 	import "../app.css";
+    import { page } from "$app/stores";
 
 	let {supabase,session} = data
 	$: ({supabase,session} = data)
-
+	let profile:any = {}
 	// session is null, if session is null we have no user, if its not null, we have a user
 	supabase.auth.onAuthStateChange(async (event,session) => {
 		if(event === "SIGNED_IN"){
@@ -17,6 +18,9 @@
 			await goto("login");
 			invalidateAll();
 		}
+	});
+	page.subscribe(async () => {
+  		profile = await getUserData(supabase, session);
 	});
 </script>
 
@@ -33,15 +37,19 @@
 			{/if}
 		</div>
 		<!--Right side of navbar-->
-		<div>
-			{#if session == null}
-				<a class="btn btn-ghost text-xl" href="/login">Login</a>
-			{:else}
-				<span class="text-white text-lg ml-2">{session.user.email}</span>
-				<button class= "ml-2" on:click={async()=> {await supabase.auth.signOut()}}>Logout</button>
-			{/if}
-			
-		</div>
+		<div class="flex items-center space-x-4">
+  {#if session == null}
+    <a class="btn btn-ghost text-xl" href="/login">Login</a>
+  {:else}
+	{#if profile.name != "" || profile.name == undefined}
+		<div class="flex items-center bg-primary text-white px-4 py-1 rounded-full shadow-md">
+		<span class="font-semibold text-lg">{profile.name}</span>
+		</div>	
+	{/if}
+    <button class="btn btn-ghost ml-2" on:click={async () => await supabase.auth.signOut()}>Logout</button>
+  {/if}
+</div>
+
 </nav>
 
 <slot></slot>
