@@ -26,7 +26,7 @@
 
     async function refreshPokemonData() {
         pokemonData = [];
-
+ 
         profile.pokemon_ids.map(async (id:number)=>{
             // 1./ bulbassaur
             const data = await getPokemon(id.toString())
