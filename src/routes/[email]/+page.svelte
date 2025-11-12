@@ -12,11 +12,7 @@
 
     let pokemonlist: any = []
     let pokemonData: any = [] // [{pikachu},{bulbasaur}]
-    let profile: any = {
-        description: "",
-        pokemon_ids: [1,2,3],
-        name: ""
-    };
+    let profile: any = {};
 
 
     let isModalOpen = false;
@@ -64,7 +60,7 @@
         await saveProfile();
         await refreshPokemonData();
         isModalOpen = false;
-        //location.reload()
+        location.reload()
     }
 
     async function togglePokemon(id: number) {
