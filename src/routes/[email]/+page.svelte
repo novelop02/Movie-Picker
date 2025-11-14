@@ -2,7 +2,6 @@
 
 <script lang="ts">
     import { page } from "$app/stores";
-    import { getPokemonList,getPokemon } from "$lib/pokemonAPI";
     import { getUserData } from "$lib/userInfo.js";
     export let data;
 
@@ -10,8 +9,6 @@
     $: ({supabase,session} = data)
     $: email = $page.params.email;
 
-    let pokemonlist: any = []
-    let pokemonData: any = [] // [{pikachu},{bulbasaur}]
     let profile: any = {};
 
 
@@ -20,6 +17,7 @@
     // profiles in supabase which has columns for a description, pokemonsid, email
     // from this page, we cas u se the supabase object to then save to our database (grab the data)
 
+    /*
     async function refreshPokemonData() {
         pokemonData = [];
  
@@ -34,7 +32,7 @@
             }
         });
     }
-
+    */
     async function saveProfile(){
         const { data: profileData, error: profileError} = await supabase.from("profiles").select("*").eq('email',email)
 
@@ -50,6 +48,7 @@
         }
     }
 
+    /*
     page.subscribe(async() =>{
         pokemonlist = await getPokemonList();
         profile = await getUserData(supabase,session)
@@ -62,7 +61,7 @@
         isModalOpen = false;
         location.reload()
     }
-
+    */
     async function togglePokemon(id: number) {
         let pokemonIDs = profile.pokemon_ids;
         // [1,2,3] "toggle 2" -> [1,3] -. "toggle 2 - [1,2,3]"
