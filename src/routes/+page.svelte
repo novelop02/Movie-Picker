@@ -2,6 +2,14 @@
     import { getPokemonList,getPokemon } from '$lib/pokemonAPI.js';
     import { page } from '$app/stores';
     import { getUserData } from '$lib/userInfo.js';
+    import { onMount } from 'svelte';
+    let movies:any = []
+
+    // Fetch movies on component mount //GET
+    onMount(async() =>{
+      const response = await fetch('/api/movies')
+      movies = await response.json()
+    })
     
     export let data;
     let {supabase,session} = data
@@ -11,9 +19,7 @@
     let allPokemon: any = {
       ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     }
-    let profile: any = {
-        
-    };
+    let profile: any = {};
 
     async function refreshData() {
         const promises = allPokemon.ids.map((id: number) => getPokemon(id.toString()));
@@ -68,16 +74,36 @@
 
   </div>
 
-  <!-- Grid de Pokémon -->
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl">
-    {#each pokemonData as pokemon}
-      <div class="card bg-slate-800 hover:bg-slate-700 shadow-md shadow-blue-900 rounded-2xl p-4 transition-all duration-300">
-        <div class="flex flex-col items-center">
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} class="w-24 h-24" />
-          <h2 class="text-xl font-bold text-white mt-2 capitalize">{pokemon.name}</h2>
-          <p class="text-info text-sm">{pokemon.types[0].type.name}</p>
-        </div>
+<!-- Grid de Películas -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-7xl mx-auto px-4 py-6">
+  {#each movies as movie}
+    <a
+      href={`/api/movies/${movie.id}`}
+      class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-900 transition-all duration-300"
+    >
+      <!-- Imagen -->
+      <div class="w-full h-48 sm:h-56 md:h-60 overflow-hidden">
+        <img
+          src={movie.img}
+          alt={movie.title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
       </div>
-    {/each}
-  </div>
+
+      <!-- Título -->
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
+          {movie.title}
+        </h2>
+      </div>
+
+      <!-- Hover overlay -->
+      <div
+        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
+      >
+        <p class="text-white text-sm font-medium">Ver detalles →</p>
+      </div>
+    </a>
+  {/each}
+</div>
 </div>
