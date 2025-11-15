@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { getPokemonList,getPokemon } from '$lib/pokemonAPI.js';
     import { page } from '$app/stores';
     import { getUserData } from '$lib/userInfo.js';
     import { onMount } from 'svelte';
@@ -14,25 +13,17 @@
     export let data;
     let {supabase,session} = data
 	  $: ({supabase,session} = data)
-    let pokemonList: any = []
-    let pokemonData: any = []
-    let allPokemon: any = {
-      ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-    }
     let profile: any = {};
-
+/*
     async function refreshData() {
         const promises = allPokemon.ids.map((id: number) => getPokemon(id.toString()));
         const results = await Promise.all(promises);
         pokemonData = results;
     }
-
+*/
 
     page.subscribe(async() =>{
-        pokemonList = await getPokemonList();
-        await refreshData();
-        console.log(await getPokemon("pikachu"));
-
+        //await refreshData();
         profile = await getUserData(supabase,session)
     });
     
