@@ -13,6 +13,7 @@
     export let data;
     let {supabase,session} = data
 	  $: ({supabase,session} = data)
+    
     let profile: any = {};
 /*
     async function refreshData() {
@@ -29,24 +30,32 @@
     
 </script>
 
+<div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
 
-<div class="min-h-screen bg-base-300 flex flex-col items-center justify-center px-4">
+  <!-- Título y acciones -->
+  <div class="text-center mb-10 p-5 max-w-2xl">
+    <h1 class="text-5xl font-extrabold text-white drop-shadow-lg tracking-tight">
+      🎬 Movie-Picker
+    </h1>
 
-  <div class="text-center mb-8 p-5">
-    <h1 class="text-4xl font-bold text-white">Bienvenido a Movie-Picker</h1>
     {#if session == undefined}
-      <p class="text-gray-400 mt-2">Create an account to make your own unique URL</p>
-      <button class="btn btn-primary mt-4">Create an Account</button>
+      <p class="text-gray-300 mt-3 text-lg">
+        Crea una cuenta para obtener tu URL personalizada
+      </p>
+      <button class="btn btn-primary mt-5 px-6 text-lg shadow-md hover:scale-105 transition-transform">
+        Crear cuenta
+      </button>
     {/if}
-    <div class="relative w-full max-w-lg mx-auto mt-6">
 
+    <!-- Buscador -->
+    <div class="relative w-full max-w-xl mx-auto mt-8">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="2"
         stroke="currentColor"
-        class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none z-10"
+        class="absolute left-4 top-1/2 -translate-y-1/2 w-7 h-7 text-gray-400 pointer-events-none z-20">
       >
         <path
           stroke-linecap="round"
@@ -57,44 +66,47 @@
 
       <input
         type="text"
-        placeholder="Busca una Película!"
-        class="input input-bordered w-full pl-10 bg-base-200 text-white"
+        placeholder="Buscar película..."
+        class="input input-bordered w-full pl-12 py-3 bg-base-200 text-white text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary transition-all"
       />
     </div>
+  </div>
 
+  <!-- Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
+
+    {#each movies as movie}
+      <a
+        href={`/api/movies/${movie.id}`}
+        class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"
+      >
+        <!-- Imagen -->
+        <div class="w-full h-52 sm:h-56 md:h-64 overflow-hidden">
+          <img
+            src={movie.img}
+            alt={movie.title}
+            class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+
+        <!-- Título -->
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
+            {movie.title}
+          </h2>
+        </div>
+
+        <!-- Overlay -->
+        <div
+          class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 backdrop-blur-sm"
+        >
+          <p class="text-white text-sm font-medium">
+            Ver detalles →
+          </p>
+        </div>
+      </a>
+    {/each}
 
   </div>
 
-<!-- Grid de Películas -->
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-7xl mx-auto px-4 py-6">
-  {#each movies as movie}
-    <a
-      href={`/api/movies/${movie.id}`}
-      class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-900 transition-all duration-300"
-    >
-      <!-- Imagen -->
-      <div class="w-full h-48 sm:h-56 md:h-60 overflow-hidden">
-        <img
-          src={movie.img}
-          alt={movie.title}
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-
-      <!-- Título -->
-      <div class="p-4">
-        <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
-          {movie.title}
-        </h2>
-      </div>
-
-      <!-- Hover overlay -->
-      <div
-        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
-      >
-        <p class="text-white text-sm font-medium">Ver detalles →</p>
-      </div>
-    </a>
-  {/each}
-</div>
 </div>
