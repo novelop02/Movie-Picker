@@ -6,7 +6,7 @@ export let movies = [
     description: 'A devoted fan reunites the Muppets to save their old theater from a greedy oil tycoon.',
     stars: 4.2,
     platform: 'Disney+',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6nfbhiP1U9iMoRlrXU7dosO5vrAp9tl_5MQ&s'
+    img: 'https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/5ffd1c71-db56-4f61-b781-fd476de31c34/compose?aspectRatio=1.78&format=webp&width=1200'
   },
   {
     id: 2,

@@ -56,7 +56,7 @@
         stroke-width="2"
         stroke="currentColor"
         class="absolute left-4 top-1/2 -translate-y-1/2 w-7 h-7 text-gray-400 pointer-events-none z-20">
-      >
+      
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -71,42 +71,40 @@
       />
     </div>
   </div>
+<!-- Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
 
-  <!-- Grid -->
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
+  {#each movies as movie}
+    <a
+      href={`/api/movies/${movie.id}`}
+      class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"
+    >
+      <!-- Imagen -->
+      <div class="w-full aspect-video overflow-hidden bg-black">
+        <img
+          src={movie.img}
+          alt={movie.title}
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+      </div>
 
-    {#each movies as movie}
-      <a
-        href={`/api/movies/${movie.id}`}
-        class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"
+      <!-- Título -->
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
+          {movie.title}
+        </h2>
+      </div>
+
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 backdrop-blur-sm"
       >
-        <!-- Imagen -->
-        <div class="w-full h-52 sm:h-56 md:h-64 overflow-hidden">
-          <img
-            src={movie.img}
-            alt={movie.title}
-            class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-          />
-        </div>
-
-        <!-- Título -->
-        <div class="p-4">
-          <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
-            {movie.title}
-          </h2>
-        </div>
-
-        <!-- Overlay -->
-        <div
-          class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 backdrop-blur-sm"
-        >
-          <p class="text-white text-sm font-medium">
-            Ver detalles →
-          </p>
-        </div>
-      </a>
-    {/each}
-
-  </div>
+        <p class="text-white text-sm font-medium">
+          Ver detalles →
+        </p>
+      </div>
+    </a>
+  {/each}
+</div>
 
 </div>
