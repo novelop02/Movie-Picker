@@ -2,7 +2,10 @@
     import { page } from '$app/stores';
     import { getUserData } from '$lib/userInfo.js';
     import { onMount } from 'svelte';
+
     let movies:any = []
+    let profile: any = []
+    let searchInput: string = ""
 
     // Fetch movies on component mount //GET
     onMount(async() =>{
@@ -13,21 +16,14 @@
     export let data;
     let {supabase,session} = data
 	  $: ({supabase,session} = data)
-    
-    let profile: any = {};
-/*
-    async function refreshData() {
-        const promises = allPokemon.ids.map((id: number) => getPokemon(id.toString()));
-        const results = await Promise.all(promises);
-        pokemonData = results;
-    }
-*/
 
     page.subscribe(async() =>{
-        //await refreshData();
         profile = await getUserData(supabase,session)
     });
     
+    $:filteredMovies = movies.filter((movie: {title:string})=>
+      movie.title.toLowerCase().includes(searchInput.toLowerCase())
+    )
 </script>
 
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
@@ -42,9 +38,9 @@
       <p class="text-gray-300 mt-3 text-lg">
         Crea una cuenta para obtener tu URL personalizada
       </p>
-      <button class="btn btn-primary mt-5 px-6 text-lg shadow-md hover:scale-105 transition-transform">
+      <a href="/login"><button class="btn btn-primary mt-5 px-6 text-lg shadow-md hover:scale-105 transition-transform">
         Crear cuenta
-      </button>
+      </button></a>
     {/if}
 
     <!-- Buscador -->
@@ -68,13 +64,15 @@
         type="text"
         placeholder="Buscar película..."
         class="input input-bordered w-full pl-12 py-3 bg-base-200 text-white text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+        bind:value={searchInput}
       />
     </div>
   </div>
+
 <!-- Grid -->
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
 
-  {#each movies as movie}
+  {#each filteredMovies as movie}
     <a
       href={`/api/movies/${movie.id}`}
       class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"

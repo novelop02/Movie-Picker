@@ -4,7 +4,7 @@
 	import { getUserData } from "$lib/userInfo";
 	import "../app.css";
     import { page } from "$app/stores";
-
+    
 	let {supabase,session} = data
 	$: ({supabase,session} = data)
 	let profile:any = {}
@@ -39,7 +39,7 @@
   		{#if session == null}
     		<a class="btn btn-ghost text-xl" href="/login">Login</a>
 		{:else}
-			{#if profile.name != "" || profile.name == undefined}
+			{#if profile.name != "" || profile.name != undefined}
 				<div class="flex items-center bg-primary text-white px-4 py-1 rounded-full shadow-md">
 				<span class="font-semibold text-lg">{profile.name}</span>
 				</div>
