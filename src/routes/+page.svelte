@@ -2,10 +2,12 @@
     import { page } from '$app/stores';
     import { getUserData } from '$lib/userInfo.js';
     import { onMount } from 'svelte';
+    import { Star } from 'lucide-svelte';
 
     let movies:any = []
     let profile: any = []
     let searchInput: string = ""
+    let isFavorite = false
 
     // Fetch movies on component mount //GET
     onMount(async() =>{
@@ -24,6 +26,10 @@
     $:filteredMovies = movies.filter((movie: {title:string})=>
       movie.title.toLowerCase().includes(searchInput.toLowerCase())
     )
+
+    function toogleFavorite(){
+      isFavorite = !isFavorite
+    }
 </script>
 
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
@@ -73,8 +79,8 @@
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
 
   {#each filteredMovies as movie}
-    <a
-      href={`/api/movies/${movie.id}`}
+    <div
+      
       class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"
     >
       <!-- Imagen -->
@@ -98,10 +104,17 @@
         class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 backdrop-blur-sm"
       >
         <p class="text-white text-sm font-medium">
-          Ver detalles →
+          <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
         </p>
+        <button on:click={toogleFavorite} class="absolute top-2 right-2 m-3">
+          {#if isFavorite}
+            ⭐
+          {:else}
+            ☆
+          {/if}
+        </button>
       </div>
-    </a>
+    </div>
   {/each}
 </div>
 

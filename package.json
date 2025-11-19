@@ -30,6 +30,7 @@
 		"@supabase/ssr": "^0.7.0",
 		"@supabase/supabase-js": "^2.78.0",
 		"daisyui": "^5.3.10",
+		"flowbite-svelte": "^1.28.1",
 		"lucide-svelte": "^0.552.0"
 	}
 }
