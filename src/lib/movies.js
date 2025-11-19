@@ -182,7 +182,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Peacock',
     genre: 'Biografía / Drama',
-    img: 'https://i.imgur.com/2ApCLuE.jpeg'
+    img: 'https://cdnb.artstation.com/p/assets/images/images/078/442/485/large/huzi7-oppenheimer-landscape.jpg?1722115669'
   },
   {
     id: 19,
