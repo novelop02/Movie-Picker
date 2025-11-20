@@ -21,6 +21,7 @@
     onMount(async() =>{
         const response = await fetch('/api/movies')
         movies = await response.json()
+        console.log(movies)
     })
     /*
     async function refreshPokemonData() {
@@ -92,44 +93,12 @@
     <div class="hero-content">
         <div class="max-w-2xl text-center">
             {#if profile.name == ""}
-                <h1 class="text-white font-bold text-4xl">Your Page</h1>
+                <h1 class="text-white font-bold text-4xl">Tu página!</h1>
             {:else}
-                <h1 class="text-white font-bold text-4xl">{profile.name}'s Page</h1>
+                <h1 class="text-white font-bold text-4xl">Página de {profile.name}!</h1>
             {/if}
             <p class="py-3 max-w-md mx-auto">{profile.description}</p>
-            <div class="grid grid-cols-3">
-                {#if movies === undefined}
-                    <p>Loading...</p>
-                {:else}
-                    {#each movies as movie}
-                        <a
-                            href={`/api/movies/${movie.id}`}
-                            class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-900 transition-all duration-300"
-                        >  
-                        <!-- Imagen -->
-                        <div class="w-full h-48 sm:h-56 md:h-60 overflow-hidden">
-                            <img
-                                src={movie.img}
-                                alt={movie.title}
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                        </div>
-                        <!-- Título -->
-                        <div class="p-4">
-                          <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
-                            {movie.title}
-                          </h2>
-                        </div>
-                        <!-- Hover overlay -->
-                        <div
-                          class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
-                        >
-                          <p class="text-white text-sm font-medium">Ver detalles →</p>
-                        </div>
-                        </a>
-                    {/each}
-                {/if}
-            </div>
+      
             {#if email === session?.user?.email}
                 <button class="btn btn-info" on:click={() => isModalOpen = true}>
                     Editar página
