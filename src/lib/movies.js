@@ -17,7 +17,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Netflix',
     genre: 'Ciencia ficción / Suspenso',
-    img: 'https://i.imgur.com/8ZQeZQF.jpeg'
+    img: 'https://www.abirpothi.com/wp-content/uploads/2024/01/small-spos8308-poster-inception-animated-wall-poster-sl-8308-original-imaghzwanmepwc89.webp'
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export let movies = [
     stars: 4.9,
     platform: 'HBO Max',
     genre: 'Animación / Fantasía',
-    img: 'https://i.imgur.com/7KS1zLp.jpeg'
+    img: 'https://www.tallengestore.com/cdn/shop/files/SpiritedAway-HayaoMiyazaki-StudioGhibli-JapaneseAnimationMoviePoster_8718979f-1c9e-48d4-a59c-449685e50014.jpg?v=1733380928'
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export let movies = [
     stars: 4.3,
     platform: 'Hulu',
     genre: 'Comedia / Drama',
-    img: 'https://i.imgur.com/8mIYUNs.jpeg'
+    img: 'https://www.thesocietyofthecrossedkeys.com/cdn/shop/products/GBHHorizontal2_984x.jpg?v=1618907630'
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Paramount+',
     genre: 'Ciencia ficción / Acción',
-    img: 'https://i.imgur.com/UOq7Yzb.jpeg'
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQocnzDCZAAUVijaPpjnO59zjIL3r8oVRXVYA&s'
   },
 
   /* ================================
@@ -62,7 +62,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Ciencia ficción / Drama',
-    img: 'https://i.imgur.com/2qVf3Cc.jpeg'
+    img: 'https://img.englishcinemaparis.com/nKizXKvqQfZzAMBylGXBi7TuU37mFVp7Mb9phhtftSw/resize:fill:800:450:1:0/gravity:sm/aHR0cHM6Ly9leHBhdGNpbmVtYXByb2QuYmxvYi5jb3JlLndpbmRvd3MubmV0L2ltYWdlcy82MGMzNzFhMy0yNzQyLTQwZWYtYTQwOS1kMzE0NmI0YTNlNDQuanBn.jpg'
   },
   {
     id: 7,
@@ -72,7 +72,7 @@ export let movies = [
     stars: 4.6,
     platform: 'Amazon Prime',
     genre: 'Musical / Romance',
-    img: 'https://i.imgur.com/9jOZ3Rz.jpeg'
+    img: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f8b2ef92655071.5e505bf7132ab.png'
   },
   {
     id: 8,
@@ -82,7 +82,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Disney+',
     genre: 'Animación / Familiar',
-    img: 'https://i.imgur.com/HCavcKB.jpeg'
+    img: 'https://stanleymovietheater.com/wp-content/uploads/2020/10/Coco-Family-Poster-Pixar.jpg'
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ export let movies = [
     stars: 4.5,
     platform: 'HBO Max',
     genre: 'Acción / Crimen',
-    img: 'https://i.imgur.com/wLXOrCJ.jpeg'
+    img: 'https://preview.redd.it/rdcg5mue1sy71.jpg?auto=webp&s=05854e04c45ad509986a5e5406853cbecf7f38b6'
   },
   {
     id: 10,
@@ -102,7 +102,7 @@ export let movies = [
     stars: 4.6,
     platform: 'HBO Max',
     genre: 'Ciencia ficción / Aventura',
-    img: 'https://i.imgur.com/LQe9u8n.jpeg'
+    img: 'https://cdnb.artstation.com/p/assets/images/images/037/636/465/large/andres-mencia-e6d693ce-a635-425f-811b-9354846b0e31-rw-1920.jpg?1620903148'
   },
   {
     id: 11,
@@ -112,7 +112,7 @@ export let movies = [
     stars: 4.3,
     platform: 'Disney+',
     genre: 'Ciencia ficción / Aventura',
-    img: 'https://i.imgur.com/LmsWbXa.jpeg'
+    img: 'https://lumiere-a.akamaihd.net/v1/images/avatar-twow-videobg02_fae5d62e.jpeg?region=0,0,1920,1080&width=768'
   },
   {
     id: 12,
@@ -122,7 +122,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Amazon Prime',
     genre: 'Crimen / Drama',
-    img: 'https://i.imgur.com/5Ax0QYj.jpeg'
+    img: 'https://i.pinimg.com/736x/9e/96/fd/9e96fdae2f6b383e60ffaa610dbdffd0.jpg'
   },
   {
     id: 13,
@@ -132,7 +132,7 @@ export let movies = [
     stars: 4.8,
     platform: 'HBO Max',
     genre: 'Acción / Ciencia ficción',
-    img: 'https://i.imgur.com/DlKSk7M.jpeg'
+    img: 'https://m.media-amazon.com/images/I/81J6CaUe+GL._AC_UF1000,1000_QL80_.jpg'
   },
   {
     id: 14,
@@ -142,7 +142,7 @@ export let movies = [
     stars: 4.4,
     platform: 'Netflix',
     genre: 'Drama / Biografía',
-    img: 'https://i.imgur.com/q2H8jE6.jpeg'
+    img: 'https://sobrosnetwork.com/wp-content/uploads/2023/10/the-social-network-1024x576.jpg'
   },
   {
     id: 15,
@@ -152,7 +152,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Amazon Prime',
     genre: 'Drama / Música',
-    img: 'https://i.imgur.com/ZlwrpRp.jpeg'
+    img: 'https://cinescopia.com/wp-content/uploads/2015/01/Whiplash-Movie-Images.jpg'
   },
   {
     id: 16,
@@ -162,7 +162,7 @@ export let movies = [
     stars: 4.6,
     platform: 'HBO Max',
     genre: 'Ciencia ficción / Misterio',
-    img: 'https://i.imgur.com/koHGEJX.jpeg'
+    img: 'https://cdn.europosters.eu/image/750/50060.jpg'
   },
   {
     id: 17,
@@ -172,7 +172,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Acción / Crimen',
-    img: 'https://i.imgur.com/8ZTrUko.jpeg'
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgZfKfxlc4n58CHTOXkHq675RBC87jxBdcfQ&s'
   },
   {
     id: 18,
@@ -192,7 +192,7 @@ export let movies = [
     stars: 4.2,
     platform: 'Max',
     genre: 'Comedia / Fantasía',
-    img: 'https://i.imgur.com/zoN9VQ1.jpeg'
+    img: 'https://sm.ign.com/ign_latam/news/b/barbie-mov/barbie-movie-posters-reveal-more-barbies-kens-and-separately_8n35.jpg'
   },
   {
     id: 20,
@@ -202,6 +202,6 @@ export let movies = [
     stars: 4.5,
     platform: 'Disney+',
     genre: 'Acción / Ciencia ficción',
-    img: 'https://i.imgur.com/mflhTfr.jpeg'
+    img: 'https://images3.alphacoders.com/132/1321665.jpg'
   }
 ];
