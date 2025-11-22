@@ -12,33 +12,24 @@
 
     let profile: any = {};
     let movies:any = []
-
     let isModalOpen = false;
     let searchInput = "";
-    // profiles in supabase which has columns for a description, pokemonsid, email
-    // from this page, we cas u se the supabase object to then save to our database (grab the data)
+    let userMovies: any[] = [];
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
         movies = await response.json()
-        console.log(movies)
-    })
-    /*
-    async function refreshPokemonData() {
-        pokemonData = [];
- 
-        profile.pokemon_ids.map(async (id:number)=>{
-            // 1./ bulbassaur
-            const data = await getPokemon(id.toString())
-            
-            if(pokemonData === undefined){
-                pokemonData = [data];
-            }else{
-                pokemonData = [ ...pokemonData,data]
-            }
-        });
+
+        if(profile.movies_ids){
+          userMovies = movies.filter((movie:any)=> profile.movies_ids.includes(movie.id))
+        }
+    });
+
+    // Cada vez que profile.movies_ids cambie, actualizar userMovies
+    $: if(profile.movies_ids){
+      userMovies = movies.filter((movie:any)=> profile.movies_ids.includes(movie.id))
     }
-    */
+
     async function saveProfile(){
         const { data: profileData, error: profileError} = await supabase.from("profiles").select("*").eq('email',email)
 
@@ -56,11 +47,8 @@
 
     
     page.subscribe(async() =>{
-        //pokemonlist = await getPokemonList();
         profile = await getUserData(supabase,session)
-        //await refreshPokemonData();
     });
-
     
     async function savePageEdits() {
         await saveProfile();
@@ -68,25 +56,6 @@
         location.reload()
     }
     
-    async function togglePokemon(id: number) {
-        let pokemonIDs = profile.pokemon_ids;
-        // [1,2,3] "toggle 2" -> [1,3] -. "toggle 2 - [1,2,3]"
-
-        // make sure we never have more than 3 pokemon
-        if(pokemonIDs.length >= 3  && !pokemonIDs.includes(id)){
-            alert("You can only have 3 pokemons!")
-            return
-        }
-        // if pojemonIDs has ID, remove it
-        if(pokemonIDs.includes(id)){
-            let index = pokemonIDs.indexOf(id);
-            pokemonIDs.splice(index,1);
-        }else{
-            pokemonIDs.push(id);
-        }
-
-        profile.pokemon_ids = [...pokemonIDs]
-    }
 </script>
 
 <div class="hero min-h-screen bg-base-300">
@@ -98,7 +67,42 @@
                 <h1 class="text-white font-bold text-4xl">Página de {profile.name}!</h1>
             {/if}
             <p class="py-3 max-w-md mx-auto">{profile.description}</p>
-      
+<!-- Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-6 max-w-[90rem] mx-auto px-6">
+
+  {#each userMovies as movie}
+    <div
+      class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"
+    >
+      <!-- Imagen horizontal -->
+      <div class="w-full aspect-[16/9] overflow-hidden bg-black rounded-t-2xl">
+        <img
+          src={movie.img}
+          alt={movie.title}
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+
+      <!-- Título debajo -->
+      <div class="p-3 bg-slate-900 rounded-b-2xl">
+        <h2 class="text-sm sm:text-base font-semibold text-white text-center group-hover:text-blue-300 transition-colors truncate">
+          {movie.title}
+        </h2>
+      </div>
+
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 backdrop-blur-sm rounded-2xl"
+      >
+        <p class="text-white text-sm font-medium">
+          <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
+        </p>
+      </div>
+    </div>
+  {/each}
+</div>
+
+
             {#if email === session?.user?.email}
                 <button class="btn btn-info" on:click={() => isModalOpen = true}>
                     Editar página

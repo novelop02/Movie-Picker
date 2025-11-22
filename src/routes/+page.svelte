@@ -2,12 +2,10 @@
     import { page } from '$app/stores';
     import { getUserData } from '$lib/userInfo.js';
     import { onMount } from 'svelte';
-    import { Star } from 'lucide-svelte';
 
     let movies:any = []
     let profile: any = []
     let searchInput: string = ""
-    let isFavorite = false
 
     // Fetch movies on component mount //GET
     onMount(async() =>{
@@ -27,9 +25,6 @@
       movie.title.toLowerCase().includes(searchInput.toLowerCase())
     )
 
-    function toogleFavorite(){
-      isFavorite = !isFavorite
-    }
 </script>
 
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
@@ -40,7 +35,7 @@
       🎬 Movie-Picker
     </h1>
 
-    {#if session == undefined}
+    {#if !session}
       <p class="text-gray-300 mt-3 text-lg">
         Crea una cuenta para obtener tu URL personalizada
       </p>
@@ -106,13 +101,6 @@
         <p class="text-white text-sm font-medium">
           <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
         </p>
-        <button on:click={toogleFavorite} class="absolute top-2 right-2 m-3">
-          {#if isFavorite}
-            ⭐
-          {:else}
-            ☆
-          {/if}
-        </button>
       </div>
     </div>
   {/each}
