@@ -11,7 +11,6 @@
 
     function handleRemove(id: Movie['id']) {
         removeMovie(id);
-        // Resetea la película seleccionada si era la eliminada
         if (selectedMovie && selectedMovie.id === id) {
             selectedMovie = null;
         }
@@ -35,7 +34,6 @@
     <h1 class="text-3xl font-bold mb-8">🎬 Ruleta de Películas</h1>
 
     <div class="w-full max-w-md">
-        <!-- Controles Superiores -->
         <div class="flex gap-4 mb-6">
             <button
                 class="flex-1 px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 font-bold shadow-lg transition-all"
@@ -54,28 +52,25 @@
             </button>
         </div>
 
-        <!-- Resultado -->
+        <!-- seleccionada -->
         {#if selectedMovie}
-            <!-- Se eliminó la clase 'animate-bounce' -->
             <div class="mb-8 p-4 bg-green-600 rounded-xl text-center shadow-xl transform transition-transform duration-500 scale-105">
-                <div class="text-lg opacity-90">La ganadora es:</div>
+                <div class="text-lg opacity-90">La pelicula ganadora es:</div>
                 <div class="text-2xl font-extrabold mt-1">{selectedMovie.title}</div>
             </div>
         {/if}
 
-        <!-- Lista de películas -->
+        <!-- lista de peliculas -->
         <div class="space-y-3">
             {#if $roulette.length === 0}
                 <p class="text-center text-gray-500 italic">No hay películas en la ruleta.</p>
             {/if}
 
             {#each $roulette as movie (movie.id)}
-                <!-- Usamos 'group' aquí para controlar el hover -->
                 <div class="group bg-gray-800 p-4 rounded-lg flex items-center justify-between shadow-md hover:bg-gray-750 transition-colors relative">
                     <span class="text-lg font-medium">{movie.title}</span>
 
-                    <!-- Botón de eliminar (tachita) -->
-                    <!-- opacity-0 por defecto, group-hover:opacity-100 al pasar el mouse -->
+                    <!-- boton de eliminar -->
                     <button
                         class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 absolute right-4 text-red-400 hover:text-red-500 text-2xl font-bold"
                         on:click={() => handleRemove(movie.id)}

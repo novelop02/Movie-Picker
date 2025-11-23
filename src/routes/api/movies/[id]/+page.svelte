@@ -4,7 +4,6 @@
     import { goto } from "$app/navigation";
     import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
     import { getUserData } from "$lib/userInfo.js";
-    // Importamos el store, la función para añadir y el límite
     import { roulette, addMovie, MAX_MOVIES } from '$lib/rouletteStore';
     import { get } from 'svelte/store';
 
@@ -19,7 +18,6 @@
     let profile:any = []
     $: email = $page.params.email;
     
-    // Estado para el modal de límite
     let showLimitModal = false;
 
     page.subscribe(async() =>{
@@ -32,22 +30,19 @@
     })
     $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
 
-    // Función para añadir a la ruleta
+    // añadir a la ruleta
     function addToRoulette() {
         if (!selectedMovie) return;
 
         const currentMovies = get(roulette);
 
-        // Verificar si ya alcanzamos el límite
+        // revisar el límite
         if (currentMovies.length >= MAX_MOVIES) {
             showLimitModal = true;
             return;
         }
-
-        // Añadir la película
         addMovie(selectedMovie);
-        // Opcional: Mostrar una alerta simple de éxito
-        alert("Película añadida a la ruleta");
+        alert("Pelicula añadida a la ruleta");
     }
 
     async function toogleFavorite(){ 
@@ -89,7 +84,7 @@
     }
 
     if(profileData?.length === 0){
-      // Crear nuevo perfil
+      // crear nuevo perfil
       const {data, error} = await supabase
         .from("profiles")
         .insert({...profile,user_id:session.user.id,email:userEmail})

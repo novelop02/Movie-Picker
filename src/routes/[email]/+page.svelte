@@ -24,7 +24,6 @@
         }
     });
 
-    // Cada vez que profile.movies_ids cambie, actualizar userMovies
     $: if(profile.movies_ids){
       userMovies = movies.filter((movie:any)=> profile.movies_ids.includes(movie.id))
     }
@@ -59,12 +58,9 @@
 
 <div class="min-h-screen bg-base-300 py-10 px-4 md:px-8 flex flex-col items-center">
     
-    <!-- ENCABEZADO CENTRADO -->
+    <!-- usuario -->
     <div class="max-w-3xl mx-auto text-center mb-12">
         
-        <!-- Avatar Simulado con Inicial (ELIMINADO) -->
-        <!-- <div class="avatar placeholder mb-4"> ... </div> -->
-
         {#if profile.name == "" || !profile.name}
              <h1 class="text-5xl font-extrabold text-white mb-4 drop-shadow-md tracking-tight">
                  🎬 ¡Tu página!
@@ -83,7 +79,7 @@
             </div>
         {/if}
 
-        <!-- Botón Editar -->
+        <!-- boton editar -->
         {#if email === session?.user?.email}
             <div class="mt-8">
                 <button class="btn btn-info btn-outline gap-2 hover:scale-105 transition-transform shadow-md" on:click={() => isModalOpen = true}>
@@ -94,7 +90,7 @@
         {/if}
     </div>
 
-    <!-- GRID DE PELÍCULAS (Estilo Menú Principal: Horizontal y Título Debajo) -->
+    <!-- favoritos -->
     <div class="max-w-[90rem] mx-auto w-full px-6">
         <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4 flex items-center gap-3">
             <span class="text-yellow-400 text-4xl">⭐</span> Favoritos
@@ -105,7 +101,7 @@
                 {#each userMovies as movie}
                     <div class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300">
                         
-                        <!-- Imagen Horizontal (Estilo Video/Menú Principal) -->
+                        <!-- peliculas -->
                         <div class="w-full aspect-video overflow-hidden bg-black">
                             <img
                                 src={movie.img}
@@ -114,14 +110,12 @@
                             />
                         </div>
 
-                        <!-- Título debajo (Estilo Menú Principal) -->
+                        <!-- nombre de la peli -->
                         <div class="p-4 bg-slate-900">
                             <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors truncate">
                                 {movie.title}
                             </h2>
                         </div>
-
-                        <!-- Overlay para ver detalles (Estilo Menú Principal) -->
                         <a href={`/api/movies/${movie.id}`} class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10 rounded-2xl">
                             <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors">
                                 Ver detalles →
@@ -138,8 +132,6 @@
             </div>
         {/if}
     </div>
-
-    <!-- MODAL DE EDICIÓN (Sin cambios) -->
     <dialog class="modal" class:modal-open={isModalOpen}>
         <div class="modal-box max-w-lg bg-base-100 shadow-2xl rounded-2xl">
             <h3 class="font-bold text-2xl mb-6 text-center text-white">Editar Perfil</h3>
@@ -194,7 +186,6 @@
                 </div>
             </form>
         </div>
-        <!-- Fondo oscuro para cerrar al hacer clic fuera -->
         <form method="dialog" class="modal-backdrop">
             <button on:click={() => isModalOpen = false}>close</button>
         </form>
