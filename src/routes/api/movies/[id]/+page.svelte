@@ -1,10 +1,10 @@
 <script lang='ts'>
-    import { onMount } from "svelte";
-    import { page } from "$app/stores";
-    import { goto } from "$app/navigation";
-    import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
-    import { getUserData } from "$lib/userInfo.js";
-    const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
+    import { onMount } from "svelte";
+    import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
+    import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
+    import { getUserData } from "$lib/userInfo.js";
+    const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
 
     export let data;
     let {supabase,session} = data
