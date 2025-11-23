@@ -91,7 +91,7 @@
     </div>
 
     <!-- favoritos -->
-    <div class="max-w-[90rem] mx-auto w-full px-6">
+    <div class="max-w-360 mx-auto w-full px-6">
         <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4 flex items-center gap-3">
             <span class="text-yellow-400 text-4xl">⭐</span> Favoritos
         </h2>
