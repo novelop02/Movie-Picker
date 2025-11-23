@@ -37,7 +37,7 @@
 
     {#if !session}
       <p class="text-gray-300 mt-3 text-lg">
-        Crea una cuenta para obtener tu URL personalizada
+        Crea una cuenta para poder agregar usar la ruleta y guardar tus películas favoritas.
       </p>
       <a href="/login"><button class="btn btn-primary mt-5 px-6 text-lg shadow-md hover:scale-105 transition-transform">
         Crear cuenta
