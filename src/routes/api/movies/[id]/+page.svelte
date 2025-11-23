@@ -1,10 +1,10 @@
 <script lang='ts'>
-    import { onMount } from "svelte";
-    import { page } from "$app/stores";
-    import { goto } from "$app/navigation";
-    import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
-    import { getUserData } from "$lib/userInfo.js";
-    const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
+    import { onMount } from "svelte";
+    import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
+    import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
+    import { getUserData } from "$lib/userInfo.js";
+    const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
 
     export let data;
     let {supabase,session} = data
@@ -25,18 +25,23 @@
     })
     $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
 
-     function toogleFavorite(){
-      isFavorite = !isFavorite
-    }
+async function toogleFavorite(){ 
+    const movieId = selectedMovie?.id;
 
-    function addFav(movie_id: number){
-      profile.movies_ids.push(movie_id)
+    if (!movieId) return;
+    isFavorite = !isFavorite;
+    if (isFavorite) {
+        if (!profile.movies_ids) profile.movies_ids = [];// añade a fav
+        if (!profile.movies_ids.includes(movieId)) {// checa si no esta duplicado
+            profile.movies_ids.push(movieId);
+        }
+    } else {
+        if (!profile.movies_ids) profile.movies_ids = [];// quita de fav
+        profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movieId);
     }
-
-    function removeFav(movie_id: number){
-      if(!profile.movies_ids) profile.movies_ids = []
-      profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movie_id);
-    }
+    await saveProfile();
+    console.log(profile.movies_ids);
+} 
 
     function save_go(){
       saveProfile()
@@ -95,15 +100,11 @@
           {#if session}
             <button onclick={toogleFavorite} class="text-3xl">
               {#if isFavorite}
-                ⭐
-                {addFav(selectedMovie.id)}
-                {console.log(profile.movies_ids)}
+              ⭐
               {:else}
-                ☆
-                {removeFav(selectedMovie.id)}
-                {console.log(profile.movies_ids)}
+              ☆
               {/if}
-            </button>
+            </button> 
           {/if}
           </div>
           <p class="text-sm text-gray-400 mb-4">{selectedMovie.year} • {selectedMovie.genre}</p>
