@@ -78,7 +78,7 @@
 
     <!-- Buscador -->
     <div class="flex flex-col md:flex-row gap-4 w-full max-w-2xl mx-auto mt-8 mb-1">
-      <div class="relative flex-grow">
+      <div class="relative grow">
         <svg xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -99,7 +99,7 @@
         />
       </div>
 
-      <div class="form-control w-full md:w-auto md:min-w-[10rem]">
+      <div class="form-control w-full md:w-auto md:min-w-40">
             <select 
                 class="select select-bordered w-full **bg-white text-gray-900** text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary"
                 bind:value={generoSeleccionado}
