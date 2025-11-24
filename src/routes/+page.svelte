@@ -2,10 +2,12 @@
     import { page } from '$app/stores';
     import { getUserData } from '$lib/userInfo.js';
     import { onMount } from 'svelte';
+    import { Star } from 'lucide-svelte';
 
     let movies:any = []
     let profile: any = []
     let searchInput: string = ""
+    let isFavorite = false
 
 
   //Aqui agrego las nuevas variables que van a servir para filtrar
@@ -53,6 +55,9 @@
       return titulo && match;
     });
 
+    function toogleFavorite(){
+      isFavorite = !isFavorite
+    }
 </script>
 
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
@@ -62,9 +67,9 @@
       🎬 Movie-Picker
     </h1>
 
-    {#if !session}
+    {#if session == undefined}
       <p class="text-gray-300 mt-3 text-lg">
-        Crea una cuenta para poder agregar usar la ruleta y guardar tus películas favoritas.
+        Crea una cuenta para obtener tu URL personalizada
       </p>
       <a href="/login"><button class="btn btn-primary mt-5 px-6 text-lg shadow-md hover:scale-105 transition-transform">
         Crear cuenta
@@ -138,6 +143,13 @@
         <p class="text-white text-sm font-medium">
           <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
         </p>
+        <button on:click={toogleFavorite} class="absolute top-2 right-2 m-3">
+          {#if isFavorite}
+            ⭐
+          {:else}
+            ☆
+          {/if}
+        </button>
       </div>
     </div>
   {/each}
