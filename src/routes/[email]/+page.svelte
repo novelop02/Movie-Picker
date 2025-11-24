@@ -12,33 +12,22 @@
 
     let profile: any = {};
     let movies:any = []
-
     let isModalOpen = false;
-    let searchInput = "";
-    // profiles in supabase which has columns for a description, pokemonsid, email
-    // from this page, we cas u se the supabase object to then save to our database (grab the data)
+    let userMovies: any[] = [];
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
         movies = await response.json()
-        console.log(movies)
-    })
-    /*
-    async function refreshPokemonData() {
-        pokemonData = [];
- 
-        profile.pokemon_ids.map(async (id:number)=>{
-            // 1./ bulbassaur
-            const data = await getPokemon(id.toString())
-            
-            if(pokemonData === undefined){
-                pokemonData = [data];
-            }else{
-                pokemonData = [ ...pokemonData,data]
-            }
-        });
+
+        if(profile.movies_ids){
+          userMovies = movies.filter((movie:any)=> profile.movies_ids.includes(movie.id))
+        }
+    });
+
+    $: if(profile.movies_ids){
+      userMovies = movies.filter((movie:any)=> profile.movies_ids.includes(movie.id))
     }
-    */
+
     async function saveProfile(){
         const { data: profileData, error: profileError} = await supabase.from("profiles").select("*").eq('email',email)
 
@@ -56,11 +45,8 @@
 
     
     page.subscribe(async() =>{
-        //pokemonlist = await getPokemonList();
         profile = await getUserData(supabase,session)
-        //await refreshPokemonData();
     });
-
     
     async function savePageEdits() {
         await saveProfile();
@@ -68,91 +54,141 @@
         location.reload()
     }
     
-    async function togglePokemon(id: number) {
-        let pokemonIDs = profile.pokemon_ids;
-        // [1,2,3] "toggle 2" -> [1,3] -. "toggle 2 - [1,2,3]"
-
-        // make sure we never have more than 3 pokemon
-        if(pokemonIDs.length >= 3  && !pokemonIDs.includes(id)){
-            alert("You can only have 3 pokemons!")
-            return
-        }
-        // if pojemonIDs has ID, remove it
-        if(pokemonIDs.includes(id)){
-            let index = pokemonIDs.indexOf(id);
-            pokemonIDs.splice(index,1);
-        }else{
-            pokemonIDs.push(id);
-        }
-
-        profile.pokemon_ids = [...pokemonIDs]
-    }
 </script>
 
-<div class="hero min-h-screen bg-base-300">
-    <div class="hero-content">
-        <div class="max-w-2xl text-center">
-            {#if profile.name == ""}
-                <h1 class="text-white font-bold text-4xl">Tu página!</h1>
-            {:else}
-                <h1 class="text-white font-bold text-4xl">Página de {profile.name}!</h1>
-            {/if}
-            <p class="py-3 max-w-md mx-auto">{profile.description}</p>
-      
-            {#if email === session?.user?.email}
-                <button class="btn btn-info" on:click={() => isModalOpen = true}>
+<div class="min-h-screen bg-base-300 py-10 px-4 md:px-8 flex flex-col items-center">
+    
+    <!-- usuario -->
+    <div class="max-w-3xl mx-auto text-center mb-12">
+        
+        {#if profile.name == "" || !profile.name}
+             <h1 class="text-5xl font-extrabold text-white mb-4 drop-shadow-md tracking-tight">
+                 🎬 ¡Tu página!
+             </h1>
+        {:else}
+             <h1 class="text-5xl font-extrabold text-white mb-4 drop-shadow-md tracking-tight">
+                {profile.name}
+             </h1>
+        {/if}
+        
+        {#if profile.description}
+            <div class="bg-slate-800/50 backdrop-blur-md p-6 rounded-2xl inline-block shadow-inner max-w-xl border border-white/10">
+                <p class="text-xl text-gray-300 italic leading-relaxed">
+                    {profile.description}
+                </p>
+            </div>
+        {/if}
+
+        <!-- boton editar -->
+        {#if email === session?.user?.email}
+            <div class="mt-8">
+                <button class="btn btn-info btn-outline gap-2 hover:scale-105 transition-transform shadow-md" on:click={() => isModalOpen = true}>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                     Editar página
                 </button>
-
-                <dialog class="modal" class:modal-open={isModalOpen}>
-                  <div class="modal-box max-w-2xl">
-                    <h2 class="font-bold text-2xl mb-2">Edita tu perfil</h2>
-                    <p class="mb-4 text-gray-500">Personaliza tu página para reflejar quién eres</p>
-
-                    <form class="space-y-4" on:submit|preventDefault={savePageEdits}>
-                      <fieldset class="space-y-2">
-                        <label class="block text-sm font-medium text-left" for="name">Nombre</label>
-                        <input
-                          id="name"
-                          type="text"
-                          class="input input-bordered w-full"
-                          placeholder="Manuel Soberanis"
-                          bind:value={profile.name}
-                          required
-                        />
-                      </fieldset>
-                  
-                      <fieldset class="space-y-2">
-                        <label class="block text-sm font-medium text-left" for="age">Edad</label>
-                        <input
-                          id="age"
-                          type="number"
-                          class="input input-bordered w-full"
-                          placeholder="17"
-                          bind:value={profile.age}
-                        />
-                      </fieldset>
-                  
-                      <fieldset class="space-y-2">
-                        <label class="block text-sm font-medium text-left" for="description">Sobre ti</label>
-                        <textarea
-                          id="description"
-                          class="textarea textarea-bordered w-full"
-                          placeholder="Me gusta la comedia y las películas de terror"
-                          bind:value={profile.description}
-                        ></textarea>
-                      </fieldset>
-                  
-                      <div class="flex justify-end gap-3 pt-4">
-                        <button type="submit" class="btn btn-success">Guardar</button>
-                        <button type="button" class="btn btn-error" on:click={() => isModalOpen = false}>
-                          Cancelar
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </dialog>
-            {/if}
-        </div>
+            </div>
+        {/if}
     </div>
+
+    <!-- favoritos -->
+    <div class="max-w-360 mx-auto w-full px-6">
+        <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4 flex items-center gap-3">
+            <span class="text-yellow-400 text-4xl">⭐</span> Favoritos
+        </h2>
+
+        {#if userMovies.length > 0}
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                {#each userMovies as movie}
+                    <div class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300">
+                        
+                        <!-- peliculas -->
+                        <div class="w-full aspect-video overflow-hidden bg-black">
+                            <img
+                                src={movie.img}
+                                alt={movie.title}
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                        </div>
+
+                        <!-- nombre de la peli -->
+                        <div class="p-4 bg-slate-900">
+                            <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors truncate">
+                                {movie.title}
+                            </h2>
+                        </div>
+                        <a href={`/api/movies/${movie.id}`} class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10 rounded-2xl">
+                            <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors">
+                                Ver detalles →
+                            </span>
+                        </a>
+                    </div>
+                {/each}
+            </div>
+        {:else}
+            <div class="text-center py-16 bg-slate-800/30 rounded-3xl border-2 border-dashed border-gray-600">
+                <p class="text-gray-400 text-xl font-semibold">Aún no hay películas favoritas en este perfil.</p>
+                <p class="text-gray-500 mt-2">¡Explora y añade tus favoritas!</p>
+                <a href="/" class="btn btn-primary mt-6">Explorar Películas</a>
+            </div>
+        {/if}
+    </div>
+    <dialog class="modal" class:modal-open={isModalOpen}>
+        <div class="modal-box max-w-lg bg-base-100 shadow-2xl rounded-2xl">
+            <h3 class="font-bold text-2xl mb-6 text-center text-white">Editar Perfil</h3>
+            
+            <form class="flex flex-col gap-5" on:submit|preventDefault={savePageEdits}>
+                <div class="form-control w-full">
+                    <label class="label" for="name">
+                        <span class="label-text font-semibold text-base">Nombre</span>
+                    </label>
+                    <input
+                        id="name"
+                        type="text"
+                        class="input input-bordered w-full bg-base-200 focus:bg-base-100 transition-colors"
+                        placeholder="Tu nombre"
+                        bind:value={profile.name}
+                        required
+                    />
+                </div>
+                
+                <div class="form-control w-full">
+                    <label class="label" for="age">
+                        <span class="label-text font-semibold text-base">Edad</span>
+                    </label>
+                    <input
+                        id="age"
+                        type="number"
+                        class="input input-bordered w-full bg-base-200 focus:bg-base-100 transition-colors"
+                        placeholder="Ej: 25"
+                        bind:value={profile.age}
+                    />
+                </div>
+                
+                <div class="form-control w-full">
+                    <label class="label" for="description">
+                        <span class="label-text font-semibold text-base">Sobre ti</span>
+                    </label>
+                    <textarea
+                        id="description"
+                        class="textarea textarea-bordered h-32 bg-base-200 focus:bg-base-100 transition-colors text-base resize-none"
+                        placeholder="Hablanos un poco de ti!"
+                        bind:value={profile.description}
+                    ></textarea>
+                </div>
+                
+                <div class="modal-action mt-8 flex justify-end gap-3">
+                    <button type="button" class="btn btn-ghost hover:bg-base-200" on:click={() => isModalOpen = false}>
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-success px-8 text-white">
+                        Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button on:click={() => isModalOpen = false}>close</button>
+        </form>
+    </dialog>
+
 </div>

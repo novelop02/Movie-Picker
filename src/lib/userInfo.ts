@@ -12,3 +12,4 @@ export async function getUserData(supabase:any, session:any) {
         
         return profile
 } 
+
