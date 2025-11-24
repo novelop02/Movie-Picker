@@ -17,6 +17,9 @@
     $: id = $page.params.id;
     let isFavorite = false
     let profile:any = []
+    $: if (profile && profile.movies_ids && id){
+      isFavorite = profile.movies_ids.includes(Number(id));
+    }
     $: email = $page.params.email;
     let isinRoulette = false;
     
@@ -163,7 +166,7 @@
                 {#if session}
                     <button onclick={toogleFavorite} class="text-3xl">
                     {#if isFavorite}
-                    ⭐
+                    ★
                     {:else}
                     ☆
                     {/if}
