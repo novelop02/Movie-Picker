@@ -9,10 +9,30 @@
     let searchInput: string = ""
     let isFavorite = false
 
+
+  //Aqui agrego las nuevas variables que van a servir para filtrar
+  let generoDisponible: string[] = ['Todos']; //Va a tomar acción, comedia, drama, etc.
+  let generoSeleccionado: string = 'Todos';
+
+  function getUnicoGenero(movieList: any[]): string[]{
+    const unicoGenro = new Set<string>();
+
+    movieList.forEach(movie => {
+      if (movie.genre) {
+        const genresArray = movie.genre.split(/ \/ |\/ /).map((g: string) => g.trim());
+                genresArray.forEach((genre: string) => {
+                    unicoGenro.add(genre);
+                });
+            }
+        });
+        return ['Todos', ...Array.from(unicoGenro).sort()];
+      }
+
     // Fetch movies on component mount //GET
     onMount(async() =>{
       const response = await fetch('/api/movies')
       movies = await response.json()
+      generoDisponible = getUnicoGenero(movies);
     })
     
     export let data;
@@ -23,9 +43,17 @@
         profile = await getUserData(supabase,session)
     });
     
-    $:filteredMovies = movies.filter((movie: {title:string})=>
-      movie.title.toLowerCase().includes(searchInput.toLowerCase())
-    )
+    $:filteredMovies = movies.filter((movie: {title:string, genre:string})=> {
+      //Filtrado por el titulo
+      const titulo = movie.title.toLowerCase().includes(searchInput.toLowerCase());
+
+      //Filtrado por el genero
+      const esSeleccionado = generoSeleccionado === 'Todos';
+
+      const match = esSeleccionado || movie.genre.includes(generoSeleccionado);
+
+      return titulo && match;
+    });
 
     function toogleFavorite(){
       isFavorite = !isFavorite
@@ -33,9 +61,8 @@
 </script>
 
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
-
   <!-- Título y acciones -->
-  <div class="text-center mb-10 p-5 max-w-2xl">
+  <div class="text-center mb-10 p-5">
     <h1 class="text-5xl font-extrabold text-white drop-shadow-lg tracking-tight">
       🎬 Movie-Picker
     </h1>
@@ -50,28 +77,38 @@
     {/if}
 
     <!-- Buscador -->
-    <div class="relative w-full max-w-xl mx-auto mt-8">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        class="absolute left-4 top-1/2 -translate-y-1/2 w-7 h-7 text-gray-400 pointer-events-none z-20">
-      
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"
-        />
-      </svg>
+    <div class="flex flex-col md:flex-row gap-4 w-full max-w-2xl mx-auto mt-8 mb-1">
+      <div class="relative flex-grow">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-7 h-7 text-gray-400 pointer-events-none z-20">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"
+            />
+        </svg>
 
-      <input
-        type="text"
-        placeholder="Buscar película..."
-        class="input input-bordered w-full pl-12 py-3 bg-base-200 text-white text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+        <input type="text"
+        placeholder="Buscar pelicula"
+        class="input input-bordered w-full pl-12 py-3 **bg-white text-gray-900** text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary transition-all"
         bind:value={searchInput}
-      />
+        />
+      </div>
+
+      <div class="form-control w-full md:w-auto md:min-w-[10rem]">
+            <select 
+                class="select select-bordered w-full **bg-white text-gray-900** text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary"
+                bind:value={generoSeleccionado}
+            >
+                {#each generoDisponible as genero}
+                    <option value={genero}>{genero}</option>
+                {/each}
+            </select>
+        </div>
     </div>
   </div>
 
