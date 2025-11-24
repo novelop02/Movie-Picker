@@ -143,13 +143,7 @@
         <p class="text-white text-sm font-medium">
           <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
         </p>
-        <button on:click={toogleFavorite} class="absolute top-2 right-2 m-3">
-          {#if isFavorite}
-            ⭐
-          {:else}
-            ☆
-          {/if}
-        </button>
+        
       </div>
     </div>
   {/each}

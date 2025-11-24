@@ -408,5 +408,96 @@ export let movies = [
     platform: 'Hulu',
     genre: 'Drama / Misterio',
     img: 'https://images8.alphacoders.com/112/1121403.jpg'
-  }
+  },
+  {
+  id: 41,
+  title: 'The Iron Giant',
+  year: 1999,
+  description: 'Un niño descubre y protege a un robot gigante del gobierno.',
+  stars: 4.8,
+  platform: 'HBO Max',
+  genre: 'Animación / Ciencia ficción',
+  img: 'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/irongiantukquadlarge1.jpg'
+},
+{
+  id: 42,
+  title: 'Ratatouille',
+  year: 2007,
+  description: 'Un ratón con talento culinario demuestra que cualquiera puede cocinar en un restaurante de París.',
+  stars: 4.8,
+  platform: 'Disney+',
+  genre: 'Animación / Comedia',
+  img: 'https://images.squarespace-cdn.com/content/v1/54400c3de4b06a018e97259e/e7313a63-1ce6-473c-9143-6912eabbfcd4/ratatouille+horizontal.jpg'
+},
+{
+  id: 43,
+  title: 'The Lion King',
+  year: 1994,
+  description: 'Un joven león debe asumir su destino y reclamar su lugar como rey de la sabana.',
+  stars: 4.9,
+  platform: 'Disney+',
+  genre: 'Animación / Aventura',
+  img: 'https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/3969ca4d-9dbc-474c-81b4-97b0ac493022/compose?aspectRatio=1.78&format=webp&width=1200'
+},
+{
+  id: 44,
+  title: 'Her',
+  year: 2013,
+  description: 'Un escritor solitario desarrolla una relación inesperada con una inteligencia artificial.',
+  stars: 4.4,
+  platform: 'Amazon Prime',
+  genre: 'Drama / Ciencia ficción',
+  img: 'https://www.afundacion.org/images/cesionsalas/79887/her_3__narrow.jpg'
+},
+{
+  id: 45,
+  title: 'The Wolf of Wall Street',
+  year: 2013,
+  description: 'La historia real de un corredor de bolsa que asciende al poder a través de fraudes y excesos.',
+  stars: 4.6,
+  platform: 'Netflix',
+  genre: 'Biografía / Comedia negra',
+  img: 'https://wallpapers.com/images/hd/wolf-of-wall-street-movie-poster-dcz1czdi16k7oxts.jpg'
+},
+{
+  id: 46,
+  title: 'The Truman Show',
+  year: 1998,
+  description: 'Un hombre descubre que toda su vida es un reality show transmitido al mundo.',
+  stars: 4.7,
+  platform: 'Paramount+',
+  genre: 'Drama / Ciencia ficción',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQsriomZknpZOThjj2DdwFMm9kt_KQPdV8jQ&s'
+},
+{
+  id: 47,
+  title: 'Knives Out',
+  year: 2019,
+  description: 'Un detective investiga un misterioso asesinato dentro de una excéntrica familia.',
+  stars: 4.5,
+  platform: 'Amazon Prime',
+  genre: 'Misterio / Comedia',
+  img: 'https://syllepsis.live/wp-content/uploads/2020/06/knives-out.jpg'
+},
+{
+  id: 48,
+  title: 'Your Name',
+  year: 2016,
+  description: 'Dos adolescentes que intercambian cuerpos deben encontrar la manera de conectarse antes de que sea tarde.',
+  stars: 4.9,
+  platform: 'Crunchyroll',
+  genre: 'Animación / Romance',
+  img: 'https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/e54ezd6macagzovidvmk.jpg'
+},
+{
+  id: 49,
+  title: 'The Revenant',
+  year: 2015,
+  description: 'Un hombre lucha por sobrevivir en la naturaleza mientras busca venganza.',
+  stars: 4.4,
+  platform: 'HBO Max',
+  genre: 'Aventura / Drama',
+  img: 'https://pursuitofitall.com/wp-content/uploads/2016/02/the-revenant-movie-poster-horizontal.jpg'
+},
+
 ];
