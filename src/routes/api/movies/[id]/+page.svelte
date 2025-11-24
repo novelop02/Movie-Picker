@@ -6,6 +6,7 @@
     import { getUserData } from "$lib/userInfo.js";
     import { roulette, addMovie, MAX_MOVIES } from '$lib/rouletteStore';
     import { get } from 'svelte/store';
+    import { removeMovie } from "$lib/rouletteStore";
 
     const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
 
@@ -17,6 +18,7 @@
     let isFavorite = false
     let profile:any = []
     $: email = $page.params.email;
+    let isinRoulette = false;
     
     let showLimitModal = false;
 
@@ -34,6 +36,8 @@
     function addToRoulette() {
         if (!selectedMovie) return;
 
+        isinRoulette = true;
+
         const currentMovies = get(roulette);
 
         // revisar el límite
@@ -43,6 +47,20 @@
         }
         addMovie(selectedMovie);
         alert("Pelicula añadida a la ruleta");
+    }
+
+    function rmvRoulette(){
+      if(!selectedMovie) return
+
+      isinRoulette = false;
+      const currentMovies = get(roulette);
+      // revisar el límite
+        if (currentMovies.length >= MAX_MOVIES) {
+            showLimitModal = true;
+            return;
+        }
+        removeMovie(selectedMovie);
+        alert("Pelicula eliminada de la ruleta");
     }
 
     async function toogleFavorite(){ 
@@ -61,7 +79,8 @@
         }
         await saveProfile();
         console.log(profile.movies_ids);
-    } 
+    }
+
 
     function save_go(){
       saveProfile()
@@ -121,14 +140,26 @@
             <!-- Contenedor de botones -->
             <div class="flex items-center gap-3">
                 <!-- Botón Ruleta -->
-                <button 
-                    onclick={addToRoulette}
-                    class="btn btn-sm btn-info text-white"
-                    title="Añadir a Ruleta"
-                >
-                    + Ruleta
-                </button>
+                 {#if !isinRoulette}
+                  <button
+                      onclick={addToRoulette}
+                      class="btn btn-sm btn-info text-white"
+                      title="Añadir a Ruleta"
+                      
+                  >
+                      + Ruleta
+                  </button>
+                  {:else}
+                  <button
+                      onclick={rmvRoulette}
+                      class="btn btn-sm btn-error text-white"
+                      title="Añadir a Ruleta"
+                      
+                  >
+                      - Ruleta
+                  </button>
 
+                  {/if}
                 {#if session}
                     <button onclick={toogleFavorite} class="text-3xl">
                     {#if isFavorite}
