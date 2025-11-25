@@ -56,14 +56,10 @@
     function rmvRoulette(){
       // revisar si hay una pelicula releccionada
       if(!selectedMovie) return;
-      const currentMovies = get(roulette);
+        const currentMovies = get(roulette);
       // revisar el límite
-        if (currentMovies.length >= MAX_MOVIES) {
-            showLimitModal = true;
-            return;
-        }
-        removeMovie(selectedMovie);
-        alert("Pelicula eliminada de la ruleta");
+      removeMovie(selectedMovie.id);
+      alert("Pelicula eliminada de la ruleta");
     }
 
     async function toogleFavorite(){ 
