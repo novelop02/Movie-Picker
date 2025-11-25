@@ -81,7 +81,7 @@
         }
         
         //Actualizar Svelte reasignando la variable
-        profile = profile; 
+        profile = profile;
         await saveProfile();
     }
 
@@ -166,6 +166,7 @@
                   </button>
 
                   {/if}
+                <!--Boton favoritos -->
                 {#if session}
                     <button onclick={toogleFavorite} class="text-3xl">
                     {#if isFavorite}
