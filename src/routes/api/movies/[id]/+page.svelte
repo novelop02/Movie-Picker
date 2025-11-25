@@ -6,6 +6,7 @@
     import { getUserData } from "$lib/userInfo.js";
     import { roulette, addMovie, MAX_MOVIES, removeMovie } from '$lib/rouletteStore';
     import { get } from 'svelte/store';
+    import { fade } from "svelte/transition";
 
     const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
 
@@ -21,8 +22,9 @@
     $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
     $: isinRoulette = $roulette.some(m => m.id === selectedMovie?.id);
     let showLimitModal = false;
-
-    
+    let showToast = false;
+    let toastMessage = "";
+    let toastType = "success";    
     let lastLoadedUser = "";
     
     $: if (session?.user?.email && session.user.email !== lastLoadedUser) {
@@ -33,6 +35,15 @@
                 if (!profile.movies_ids) profile.movies_ids = [];
             }
         });
+    }
+    
+    function triggerToast(message: string, type: "success" | "error" = "success"){
+      toastMessage = message;
+      toastType = type;
+      showToast = true;
+      setTimeout(() => {
+        showToast = false;
+      }, 2500)
     }
 
     onMount(async() =>{
@@ -50,7 +61,7 @@
             return;
         }
         addMovie(selectedMovie);
-        alert("Pelicula añadida a la ruleta");
+        triggerToast("Película añadida a la ruleta", "success");
     }
 
     function rmvRoulette(){
@@ -59,7 +70,7 @@
         const currentMovies = get(roulette);
       // revisar el límite
       removeMovie(selectedMovie.id);
-      alert("Pelicula eliminada de la ruleta");
+      triggerToast("Película eliminada de la ruleta", "error");
     }
 
     async function toogleFavorite(){ 
@@ -191,6 +202,24 @@
     </div>
     <div class="pt-4 center"><button class="btn btn-ghost" onclick={save_go}>Regresar</button></div>
   </div>
+  {#if showToast}
+    <div class="toast toast-top toast-end z-50" transition:fade={{ duration: 300 }}>
+        <div class="alert shadow-lg text-white font-semibold" 
+             class:alert-success={toastType === 'success'} 
+             class:bg-green-600={toastType === 'success'}
+             class:alert-error={toastType === 'error'}
+             class:bg-red-600={toastType === 'error'}>
+            
+            {#if toastType === 'success'}
+                <span>✅</span>
+            {:else}
+                <span>🗑️</span>
+            {/if}
+            
+            <span>{toastMessage}</span>
+        </div>
+    </div>
+  {/if}
 {:else}
   <title>No encontrada</title>
   <div class="text-center text-gray-400 mt-20">Película no encontrada.</div>
