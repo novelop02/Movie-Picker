@@ -32,10 +32,16 @@
 		{#if session !== null}
 			<a href="/{session.user.email}" class="btn btn-ghost">Mi Perfil</a>
 			<a href="/roulette" class="btn btn-ghost 2xl">Ruleta</a>
+			
 		{/if}
 	</div>
 	<!--Right side of navbar-->
 	<div class="flex items-center space-x-4">
+		{#if profile.age >= 18 || profile.age}
+		<div class="flex items-center bg-red-500 text-white px-3 py-1 rounded-full shadow-md ">
+			<span class="font-semibold text-l"> +18 </span>
+		</div>
+		{/if}
   		{#if session == null}
     		<a class="btn btn-ghost text-xl" href="/login">Login</a>
 		{:else}
