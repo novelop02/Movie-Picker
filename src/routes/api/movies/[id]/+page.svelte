@@ -4,9 +4,8 @@
     import { goto } from "$app/navigation";
     import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
     import { getUserData } from "$lib/userInfo.js";
-    import { roulette, addMovie, MAX_MOVIES } from '$lib/rouletteStore';
+    import { roulette, addMovie, MAX_MOVIES, removeMovie } from '$lib/rouletteStore';
     import { get } from 'svelte/store';
-    import { removeMovie } from "$lib/rouletteStore";
 
     const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
 
@@ -22,7 +21,7 @@
     }
     $: email = $page.params.email;
     $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
-    let isinRoulette = false;
+    $: isinRoulette = $roulette.some(m => m.id === selectedMovie?.id);
     let showLimitModal = false;
 
     
@@ -43,11 +42,7 @@
     // añadir a la ruleta
     function addToRoulette() {
         if (!selectedMovie) return;
-
-        isinRoulette = true;
-
         const currentMovies = get(roulette);
-
         // revisar el límite
         if (currentMovies.length >= MAX_MOVIES) {
             showLimitModal = true;
@@ -59,10 +54,7 @@
 
     function rmvRoulette(){
       // revisar si hay una pelicula releccionada
-      if(!selectedMovie) return
-
-      // en que ya no esta en la ruleta, se vuelve falso
-      isinRoulette = false;
+      if(!selectedMovie) return;
       const currentMovies = get(roulette);
       // revisar el límite
         if (currentMovies.length >= MAX_MOVIES) {
