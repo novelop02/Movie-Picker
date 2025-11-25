@@ -321,13 +321,13 @@ export let movies = [
   },
   {
     id: 32,
-    title: 'The Wolf of Wall Street',
-    year: 2013,
-    description: 'Jordan Belfort asciende en el mundo de las finanzas rodeado de excesos y corrupción.',
-    stars: 4.7,
-    platform: 'Amazon Prime',
-    genre: 'Biografía / Drama',
-    img: 'https://ntvb.tmsimg.com/assets/p9991602_v_h8_af.jpg?w=960&h=540'
+    title: 'Superbad',
+    year: 2007,
+    description: 'Dos mejores amigos intentan disfrutar su última noche antes de graduarse, enfrentándose a situaciones absurdas y caóticas.',
+    stars: 4.5,
+    platform: 'Netflix',
+    genre: 'Comedia / Adolescente',
+    img: 'https://i.ebayimg.com/00/s/OTAwWDE2MDA=/z/KbQAAOSwLDZkRu98/$_57.JPG?set_id=880000500F'
   },
   {
     id: 33,
