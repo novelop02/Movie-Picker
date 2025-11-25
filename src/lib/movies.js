@@ -408,5 +408,105 @@ export let movies = [
     platform: 'Hulu',
     genre: 'Drama / Misterio',
     img: 'https://images8.alphacoders.com/112/1121403.jpg'
+  },
+  {
+    id: 41,
+    title: 'The Silence of the Lambs',
+    year: 1991,
+    description: 'Una joven recluta del FBI busca la ayuda de un caníbal encarcelado para atrapar a un asesino en serie.',
+    stars: 4.7,
+    platform: 'Amazon Prime',
+    genre: 'Suspenso / Crimen',
+    img: 'https://cdn.posteritati.com/posters/000/000/021/446/the-silence-of-the-lambs-md-web.jpg'
+  },
+  {
+    id: 42,
+    title: 'Arrival',
+    year: 2016,
+    description: 'Una lingüista es reclutada para comunicarse con alienígenas antes de que estalle una guerra mundial.',
+    stars: 4.6,
+    platform: 'Netflix',
+    genre: 'Ciencia ficción / Drama',
+    img: 'https://images6.alphacoders.com/112/1121126.jpg'
+  },
+  {
+    id: 43,
+    title: 'Inside Out',
+    year: 2015,
+    description: 'Las emociones de una niña llamada Riley se enfrentan a un cambio de vida, llevando a Joy y Sadness a una aventura.',
+    stars: 4.7,
+    platform: 'Disney+',
+    genre: 'Animación / Familiar',
+    img: 'https://ggsc.s3.us-west-2.amazonaws.com/assets/images/inside-out-characters-1024x576_-_abcdef_-_0a21b39134b316e51cdc0dd96c5e6bca3c0093e9_-_abcdef_-_c3aa4369bd53794b17dba2719890b56de8809755.webp'
+  },
+  {
+    id: 44,
+    title: 'Scott Pilgrim vs. the World',
+    year: 2010,
+    description: 'Un joven debe derrotar a los siete ex malvados de su nueva novia para poder salir con ella.',
+    stars: 4.3,
+    platform: 'Hulu',
+    genre: 'Comedia / Acción',
+    img: 'https://images3.alphacoders.com/112/1120969.jpg'
+  },
+  {
+    id: 45,
+    title: 'Parasite',
+    year: 2019,
+    description: 'Una familia pobre se infiltra en la vida de una familia rica, desencadenando una serie de eventos inesperados.',
+    stars: 4.9,
+    platform: 'HBO Max',
+    genre: 'Comedia negra / Thriller',
+    img: 'https://mcauliffebirdwatch.com/wp-content/uploads/2020/03/parasite.jpg'
+  },
+  {
+    id: 46,
+    title: 'Donnie Darko',
+    year: 2001,
+    description: 'Un adolescente problemático es acosado por visiones de un conejo gigante que predice el fin del mundo.',
+    stars: 4.5,
+    platform: 'Amazon Prime',
+    genre: 'Ciencia ficción / Misterio',
+    img: 'https://vinylwriters.com/wp-content/uploads/2019/01/2242173_landscape-1.jpg'
+  },
+  {
+    id: 47,
+    title: 'Before Sunrise',
+    year: 1995,
+    description: 'Dos jóvenes, un estadounidense y una francesa, se conocen en un tren y deciden pasar una noche juntos en Viena.',
+    stars: 4.4,
+    platform: 'HBO Max',
+    genre: 'Romance / Drama',
+    img: 'https://img.englishcinemabarcelona.com/FJGcuLutkDTylDsCvdkebaBMJI0SQ69u4D7hVY98Xrg/resize:fill:800:450:1:0/gravity:sm/aHR0cHM6Ly9leHBhdGNpbmVtYXByb2QuYmxvYi5jb3JlLndpbmRvd3MubmV0L2ltYWdlcy80NGNjNjhiMC01YThjLTQ4NDMtOTA2OC01NzExM2Y5ZTFiOWYuanBn.jpg'
+  },
+  {
+  id: 48,
+  title: 'Terminator 2: Judgment Day',
+  year: 1991,
+  description: 'Un cyborg es enviado al pasado para proteger a un joven John Connor del nuevo y avanzado Terminator T-1000.',
+  stars: 4.8,
+  platform: 'HBO Max',
+  genre: 'Ciencia ficción / Acción',
+  img: 'https://posterspy.com/wp-content/uploads/2021/09/HollieMatney_T2_1400px.jpg'
+  },
+  {
+    id: 49,
+    title: 'Eternal Sunshine of the Spotless Mind',
+    year: 2004,
+    description: 'Tras una ruptura dolorosa, una pareja se somete a un procedimiento para borrarse mutuamente de sus recuerdos.',
+    stars: 4.7,
+    platform: 'Amazon Prime',
+    genre: 'Ciencia ficción / Romance',
+    img: 'https://wallpapersok.com/images/hd/eternal-sunshine-of-the-spotless-mind-title-poster-b8g3xqdvf3zx0q3e.jpg'
+  },
+  {
+    id: 50,
+    title: 'A Quiet Place',
+    year: 2018,
+    description: 'Una familia debe vivir en completo silencio para evitar ser cazada por criaturas que atacan al menor sonido.',
+    stars: 4.4,
+    platform: 'Claro Video',
+    genre: 'Terror / Suspenso',
+    img: 'https://acidburnshorrorshow.wordpress.com/wp-content/uploads/2018/07/a-quiet-place-poster.jpg'
   }
 ];
