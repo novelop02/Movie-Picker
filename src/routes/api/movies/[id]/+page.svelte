@@ -23,14 +23,14 @@
     let showLimitModal = false;
 
     
-    page.subscribe(async() =>{
-        // se obtienen los datos del usuario
-        profile = await getUserData(supabase,session)
-        // si la pelicula seleccionada, ya es favorita, se activa la estrellita
-        if(profile.movies_ids.includes(Number(id))){
-          isFavorite = true
-        }
-    });
+    $: {
+    if (session) {
+        getUserData(supabase, session).then(p => {
+            profile = p;
+            isFavorite = profile.movies_ids.includes(Number(id));
+        });
+    }
+}
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
