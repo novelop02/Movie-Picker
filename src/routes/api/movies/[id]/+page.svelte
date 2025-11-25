@@ -15,24 +15,25 @@
     let movies:any = []
     $: id = $page.params.id;
     let isFavorite = false
-    let profile:any = []
-    $: if (profile && profile.movies_ids && id){
-      isFavorite = profile.movies_ids.includes(Number(id));
-    }
+    let profile:any = { movies_ids: [] };
+    $: isFavorite = profile?.movies_ids?.includes(Number(id)) ?? false;
     $: email = $page.params.email;
     $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
     $: isinRoulette = $roulette.some(m => m.id === selectedMovie?.id);
     let showLimitModal = false;
 
     
-    $: {
-    if (session) {
+    let lastLoadedUser = "";
+    
+    $: if (session?.user?.email && session.user.email !== lastLoadedUser) {
+        lastLoadedUser = session.user.email; 
         getUserData(supabase, session).then(p => {
-            profile = p;
-            isFavorite = profile.movies_ids.includes(Number(id));
+            if (p) {
+                profile = p;
+                if (!profile.movies_ids) profile.movies_ids = [];
+            }
         });
     }
-}
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
@@ -67,20 +68,21 @@
 
     async function toogleFavorite(){ 
         const movieId = selectedMovie?.id;
-
         if (!movieId) return;
-        isFavorite = !isFavorite;
+        if (!profile.movies_ids) profile.movies_ids = [];
         if (isFavorite) {
-            if (!profile.movies_ids) profile.movies_ids = [];// añade a fav
-            if (!profile.movies_ids.includes(movieId)) {// checa si no esta duplicado
+            // Si ya es favorito, lo quitamos
+            profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movieId);
+        } else {
+            // Si no es favorito, lo agregamos
+            if (!profile.movies_ids.includes(movieId)) {
                 profile.movies_ids.push(movieId);
             }
-        } else {
-            if (!profile.movies_ids) profile.movies_ids = [];// quita de fav
-            profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movieId);
         }
+        
+        //Actualizar Svelte reasignando la variable
+        profile = profile; 
         await saveProfile();
-        console.log(profile.movies_ids);
     }
 
 
