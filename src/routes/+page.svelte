@@ -60,6 +60,7 @@
     }
 </script>
 
+<title>Movie Picker</title>
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
   <!-- Título y acciones -->
   <div class="text-center mb-10 p-5">

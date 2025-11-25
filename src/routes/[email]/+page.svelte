@@ -55,7 +55,11 @@
     }
     
 </script>
-
+{#if !profile.name || profile.name == ""}
+    <title>Usuario - Movie Picker</title>
+{:else}
+    <title>{profile.name} - Movie Picker</title>
+{/if}
 <div class="min-h-screen bg-base-300 py-10 px-4 md:px-8 flex flex-col items-center">
     
     <!-- usuario -->

@@ -122,6 +122,7 @@
 </script>
 
 {#if selectedMovie}
+<title>{selectedMovie.title}</title>
   <div class="max-w-5xl mx-auto mt-10 p-6 bg-base-200 rounded-3xl shadow-xl text-white">
     <div class="flex flex-col md:flex-row gap-8">
       <!-- Imagen -->
@@ -192,6 +193,7 @@
     <div class="pt-4 center"><button class="btn btn-ghost" onclick={save_go}>Regresar</button></div>
   </div>
 {:else}
+  <title>No encontrada</title>
   <div class="text-center text-gray-400 mt-20">Película no encontrada.</div>
 {/if}
 

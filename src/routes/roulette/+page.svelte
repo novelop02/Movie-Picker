@@ -30,6 +30,7 @@
     }
 </script>
 
+<title>Ruleta de Películas</title>
 <div class="p-6 text-white min-h-screen flex flex-col items-center">
     <h1 class="text-3xl font-bold mb-8">🎬 Ruleta de Películas</h1>
 
