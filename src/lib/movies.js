@@ -499,5 +499,345 @@ export let movies = [
   genre: 'Aventura / Drama',
   img: 'https://pursuitofitall.com/wp-content/uploads/2016/02/the-revenant-movie-poster-horizontal.jpg'
 },
+{
+  id: 50,
+  title: 'Arrival',
+  year: 2016,
+  description: 'Una lingüista es reclutada para comunicarse con seres extraterrestres que llegan misteriosamente a la Tierra.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Ciencia ficción / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvbWsAXWkqnGtjsriN0fzJuwRUyaC4UHumXA&s'
+},
+{
+  id: 51,
+  title: 'The Imitation Game',
+  year: 2014,
+  description: 'La historia de Alan Turing y su crucial trabajo para descifrar los códigos nazis durante la Segunda Guerra Mundial.',
+  stars: 4.4,
+  platform: 'Netflix',
+  genre: 'Biografía / Drama',
+  img: 'https://www.lstylegstyle.com/wp-content/uploads/2014/12/The-Imitation-Game-Quad-poster-Benedict-Cumberbatch1.jpg'
+},
+{
+  id: 52,
+  title: '1917',
+  year: 2019,
+  description: 'Dos jóvenes soldados británicos reciben la misión de entregar un mensaje que podría salvar miles de vidas.',
+  stars: 4.6,
+  platform: 'HBO Max',
+  genre: 'Guerra / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2JpWjbhOciyhBxdt8uGhJiFHmLq7OCexokw&s'
+},
+{
+  id: 53,
+  title: 'The Martian',
+  year: 2015,
+  description: 'Un astronauta queda atrapado en Marte y debe ingeniárselas para sobrevivir hasta ser rescatado.',
+  stars: 4.5,
+  platform: 'Disney+',
+  genre: 'Ciencia ficción / Aventura',
+  img: 'https://www.bnl.gov/today/body_pics/2016/09/martian-poster-720px.jpg'
+},
+{
+  id: 54,
+  title: 'Gone Girl',
+  year: 2014,
+  description: 'Un hombre se convierte en el principal sospechoso cuando su esposa desaparece misteriosamente.',
+  stars: 4.3,
+  platform: 'Star+',
+  genre: 'Suspenso / Misterio',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Dfb2C_DTMqJk6VyeqTk5UAeEPnqu0TIHog&s'
+},
+{
+  id: 55,
+  title: 'The Green Mile',
+  year: 1999,
+  description: 'Un guardia de prisión conoce a un recluso con habilidades extraordinarias que cambiarán su vida.',
+  stars: 4.8,
+  platform: 'HBO Max',
+  genre: 'Drama / Fantasía',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGodAS2M6iM-icEs_AsUhdNybsHd87ZsxvfQ&s'
+},
+{
+  id: 56,
+  title: 'Interstellar 5555',
+  year: 2003,
+  description: 'Una banda alienígena es secuestrada y convertida en un éxito musical en la Tierra en esta película musical de Daft Punk.',
+  stars: 4.2,
+  platform: 'YouTube',
+  genre: 'Animación / Música / Ciencia ficción',
+  img: 'https://www.rhino.com/sites/g/files/g2000012691/files/styles/landing_banner/public/2024-10/dp1no.jpg?itok=7uTg-ieu'
+},
+{
+  id: 57,
+  title: 'Prisoners',
+  year: 2013,
+  description: 'Un padre desesperado busca a su hija desaparecida mientras la policía sigue una pista inquietante.',
+  stars: 4.6,
+  platform: 'Prime Video',
+  genre: 'Suspenso / Crimen',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0BbOzsagvwCLvdjP--6M6yp_gWY0MpxGWg&s'
+},
+{
+  id: 58,
+  title: 'The Curious Case of Benjamin Button',
+  year: 2008,
+  description: 'La historia de un hombre que nace viejo y rejuvenece con el tiempo.',
+  stars: 4.4,
+  platform: 'HBO Max',
+  genre: 'Drama / Fantasía',
+  img: 'https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/05042fc5-444f-4313-a375-827c5bc69a06/e9daa47b-7e79-44da-9b58-578286964334?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500'
+},
+{
+  id: 59,
+  title: 'No Country for Old Men',
+  year: 2007,
+  description: 'Un cazador encuentra dinero robado y se convierte en el objetivo de un asesino implacable.',
+  stars: 4.5,
+  platform: 'Netflix',
+  genre: 'Crimen / Suspenso',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhbTsaV0ffDkcqGf_akSjQDsZosCfLz6eDLg&s'
+},
+{
+  id: 60,
+  title: 'The Secret Life of Walter Mitty',
+  year: 2013,
+  description: 'Un hombre común emprende una aventura extraordinaria mientras busca una foto perdida.',
+  stars: 4.2,
+  platform: 'Disney+',
+  genre: 'Aventura / Comedia / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvaLIzPobgDncWEPlWHHhP1WzqoAKrtlYbwA&s'
+},
+{
+  id: 61,
+  title: 'Logan',
+  year: 2017,
+  description: 'En un futuro cercano, un Wolverine envejecido debe proteger a una joven con habilidades similares a las suyas.',
+  stars: 4.7,
+  platform: 'Disney+',
+  genre: 'Acción / Drama / Ciencia ficción',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaVUYf7Yb_pC02rraDdzEaWzXNL43YcanxcQ&s'
+},
+{
+  id: 62,
+  title: 'A Beautiful Mind',
+  year: 2001,
+  description: 'La vida del genio matemático John Nash, quien lucha contra la esquizofrenia mientras deja una huella en el mundo.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Biografía / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwARcXZExI7RcG3x0agWRQPeV16DRIOffDVA&s'
+},
+{
+  id: 63,
+  title: 'Scott Pilgrim vs. the World',
+  year: 2010,
+  description: 'Scott debe derrotar a los siete malvados exnovios de Ramona Flowers para ganar su corazón.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Acción / Comedia / Fantasía',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk6_YALptRSMO4mX1voSP4JaawvOfBsbYzrA&s'
+},
+{
+  id: 64,
+  title: 'La La Land in Concert',
+  year: 2019,
+  description: 'Una presentación musical en vivo basada en la película original, acompañada por orquesta.',
+  stars: 4.1,
+  platform: 'YouTube',
+  genre: 'Música / Concierto',
+  img: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f8b2ef92655071.5e505bf7132ab.png'
+},
+{
+  id: 65,
+  title: 'The Shape of Water',
+  year: 2017,
+  description: 'Una mujer forma una conexión inesperada con una criatura acuática capturada por el gobierno.',
+  stars: 4.3,
+  platform: 'HBO Max',
+  genre: 'Fantasía / Drama / Romance',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVk3GoB7bM834D2RCnytFIj_hiIZiUhkRQww&s'
+},
+{
+  id: 66,
+  title: 'Dallas Buyers Club',
+  year: 2013,
+  description: 'La historia real de un hombre que lucha por medicamentos experimentales tras ser diagnosticado con VIH.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Drama / Biografía',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWMAtjzLiZ-NK5F_fFSa8n7XSW9G73i17r8Q&s'
+},
+{
+  id: 67,
+  title: 'Room',
+  year: 2015,
+  description: 'Una madre y su hijo intentan escapar de un pequeño cuarto donde han vivido cautivos durante años.',
+  stars: 4.6,
+  platform: 'Netflix',
+  genre: 'Drama / Suspenso',
+  img: 'https://m.media-amazon.com/images/M/MV5BMGFhMjhjN2ItNTZkZi00ZDdkLThkNzEtYTJhZjM1NDMxNGYzXkEyXkFqcGc@._V1_.jpg'
+},
+{
+  id: 68,
+  title: 'The Big Short',
+  year: 2015,
+  description: 'Un grupo de inversionistas predice la crisis financiera de 2008 y apuesta contra el sistema bancario.',
+  stars: 4.4,
+  platform: 'Netflix',
+  genre: 'Drama / Biografía',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg_hGhPpQ8U9ryMEnLIhgLWAdPZGkavtLUw&s'
+},
+{
+  id: 69,
+  title: 'Gran Torino',
+  year: 2008,
+  description: 'Un veterano solitario forma un vínculo inesperado con sus vecinos en medio de conflictos barriales.',
+  stars: 4.6,
+  platform: 'HBO Max',
+  genre: 'Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPye4ttniZ3wTg5WJjNWkHpuJr6TbSj0_oZg&s'
+},
+{
+  id: 70,
+  title: 'The Pianist',
+  year: 2002,
+  description: 'La historia real de un pianista judío que intenta sobrevivir durante la ocupación nazi.',
+  stars: 4.7,
+  platform: 'Prime Video',
+  genre: 'Drama / Biografía / Guerra',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBWQt7pYKLhlMJxlKTxyQYLNOY9Xi15HTZQ&s'
+},
+{
+  id: 71,
+  title: 'The Intouchables',
+  year: 2011,
+  description: 'La amistad entre un aristócrata tetrapléjico y su carismático cuidador cambia la vida de ambos.',
+  stars: 4.8,
+  platform: 'Netflix',
+  genre: 'Comedia / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPDVb2hLN7d2cBe2NOviZVq2PhwrJSTjCyg&s'
+},
+{
+  id: 72,
+  title: 'Birdman',
+  year: 2014,
+  description: 'Un actor en decadencia intenta recuperar su fama mientras lidia con su alter ego.',
+  stars: 4.3,
+  platform: 'Star+',
+  genre: 'Comedia / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ECxN6r4YEhfZFIUBXJVNGlF2bjPWppJx1Q&s'
+},
+{
+  id: 73,
+  title: 'Silver Linings Playbook',
+  year: 2012,
+  description: 'Dos personas con vidas rotas encuentran una inesperada conexión a través del baile.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Romance / Comedia / Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo3ktytnGxpJNazZ2w1leDc_bpHg5k1Btesg&s'
+},
+{
+  id: 74,
+  title: 'Edge of Tomorrow',
+  year: 2014,
+  description: 'Un soldado revive el mismo día una y otra vez mientras lucha contra una invasión alienígena.',
+  stars: 4.5,
+  platform: 'HBO Max',
+  genre: 'Acción / Ciencia ficción',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVlK3uIdVsT1YeJMfwUsw2tHFw_9QDKl8Ew&s'
+},
+{
+  id: 75,
+  title: 'The Nice Guys',
+  year: 2016,
+  description: 'Un detective y un matón improvisado trabajan juntos para resolver un caso lleno de humor y caos.',
+  stars: 4.4,
+  platform: 'Netflix',
+  genre: 'Comedia / Acción',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8OkRYWwBVkP53YXbs0sEy9ETbz98HYvvcg&s'
+},
+{
+  id: 76,
+  title: 'Moonlight',
+  year: 2016,
+  description: 'La vida de un joven afroamericano contada en tres etapas mientras busca su identidad.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Drama',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOlBLh4s59jlX7v6sq3jC46UK2PfZlG4mVuw&s'
+},
+{
+  id: 77,
+  title: 'Hacksaw Ridge',
+  year: 2016,
+  description: 'La historia real de un médico militar que se negó a portar armas durante la Segunda Guerra Mundial.',
+  stars: 4.7,
+  platform: 'Prime Video',
+  genre: 'Guerra / Drama / Biografía',
+  img: 'https://w0.peakpx.com/wallpaper/48/874/HD-wallpaper-movie-hacksaw-ridge.jpg'
+},
+{
+  id: 78,
+  title: 'Arrival of a Train',
+  year: 1896,
+  description: 'Una de las primeras películas de la historia, mostrando la llegada de un tren a la estación.',
+  stars: 3.9,
+  platform: 'YouTube',
+  genre: 'Documental / Historia',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSdLaEGcCJy4AkdATsQI_QvHRwxfSs-XuVGA&s'
+},
+{
+  id: 79,
+  title: 'Inside Man',
+  year: 2006,
+  description: 'Un detective enfrenta a un maestro del robo en un asalto bancario lleno de giros.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Crimen / Suspenso',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs9pWwVw6DQSPQwnoMOb-k8C7AQDvndNjZ6Q&s'
+},
+{
+  id: 80,
+  title: 'Shutter Island',
+  year: 2010,
+  description: 'Un investigador llega a una isla remota para resolver la desaparición de una paciente psiquiátrica.',
+  stars: 4.6,
+  platform: 'Prime Video',
+  genre: 'Suspenso / Misterio',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlqoDTb7mUoZlIjg9megYmPxIQrdC5GGfT1Q&s'
+},
+{
+  id: 81,
+  title: 'Life of Pi',
+  year: 2012,
+  description: 'Un joven náufrago comparte un bote con un tigre de bengala en un viaje de supervivencia.',
+  stars: 4.4,
+  platform: 'Disney+',
+  genre: 'Aventura / Drama / Fantasía',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqSXWe-LBG5m2H3VOu_qX22UxuOW9exZDtGQ&s'
+},
+{
+  id: 82,
+  title: 'Ex Machina',
+  year: 2014,
+  description: 'Un programador es elegido para evaluar a una inteligencia artificial con un comportamiento inquietante.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Ciencia ficción / Drama / Suspenso',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ccUAiL0UKpjNUJQ48QZINU5t45FLddrGgA&s'
+},
+{
+  id: 83,
+  title: 'Memento',
+  year: 2000,
+  description: 'Un hombre con pérdida de memoria a corto plazo intenta vengar la muerte de su esposa.',
+  stars: 4.6,
+  platform: 'HBO Max',
+  genre: 'Suspenso / Misterio',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvBlhG5DnWJRGyO7gqPNrhPMpWkk9u4Bq8w&s'
+}
 
 ];

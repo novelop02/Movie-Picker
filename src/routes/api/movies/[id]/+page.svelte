@@ -21,20 +21,25 @@
       isFavorite = profile.movies_ids.includes(Number(id));
     }
     $: email = $page.params.email;
+    $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
     let isinRoulette = false;
-    
     let showLimitModal = false;
 
-    page.subscribe(async() =>{
-        profile = await getUserData(supabase,session)
-    });
+    
+    $: {
+    if (session) {
+        getUserData(supabase, session).then(p => {
+            profile = p;
+            isFavorite = profile.movies_ids.includes(Number(id));
+        });
+    }
+}
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
         movies = await response.json()
     })
-    $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
-
+   
     // añadir a la ruleta
     function addToRoulette() {
         if (!selectedMovie) return;
@@ -53,8 +58,10 @@
     }
 
     function rmvRoulette(){
+      // revisar si hay una pelicula releccionada
       if(!selectedMovie) return
 
+      // en que ya no esta en la ruleta, se vuelve falso
       isinRoulette = false;
       const currentMovies = get(roulette);
       // revisar el límite
@@ -126,6 +133,7 @@
   <div class="max-w-5xl mx-auto mt-10 p-6 bg-base-200 rounded-3xl shadow-xl text-white">
     <div class="flex flex-col md:flex-row gap-8">
       <!-- Imagen -->
+       
       <div class="shrink-0 w-full md:w-1/2">
         <img
           src={selectedMovie.img}
