@@ -38,7 +38,7 @@
 	</div>
 	<!--Right side of navbar-->
 	<div class="flex items-center space-x-4">
-		{#if profile.age >= 18 && profile.age != undefined}
+		{#if profile.age >= 18 && profile.age != undefined && session} 
 		<div class="flex items-center bg-red-500 text-white px-3 py-1 rounded-full shadow-md ">
 			<span class="font-semibold text-l"> +18 </span>
 		</div>
