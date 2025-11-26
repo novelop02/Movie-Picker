@@ -139,14 +139,14 @@
       </div>
 
       <!-- Overlay -->
-      <div
-        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 backdrop-blur-sm"
+      <a
+        href={`/api/movies/${movie.id}`}
+        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10"
       >
-        <p class="text-white text-sm font-medium">
-          <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
-        </p>
-        
-      </div>
+        <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors">
+          Ver detalles →
+        </span>
+      </a>
     </div>
   {/each}
 </div>
