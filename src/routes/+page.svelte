@@ -3,9 +3,12 @@
     import { getUserData } from '$lib/userInfo.js';
     import { onMount } from 'svelte';
     import { Star } from 'lucide-svelte';
+    import { get } from 'svelte/store';
+    import { roulette, addMovie, removeMovie, MAX_MOVIES } from '$lib/rouletteStore.js';
+    
 
     let movies:any = []
-    let profile: any = []
+    let profile: any = {}
     let searchInput: string = ""
     let isFavorite = false
 
@@ -55,8 +58,59 @@
       return titulo && match;
     });
 
-    function toogleFavorite(){
-      isFavorite = !isFavorite
+    //Función para la Ruleta
+    function toggleRoulette(movie: any, event: Event) {
+        event.preventDefault(); // Evita abrir detalles
+        event.stopPropagation(); 
+
+        const currentRoulette = get(roulette);
+        const isIn = currentRoulette.some((m: any) => m.id === movie.id);
+
+        if (isIn) {
+            removeMovie(movie.id);
+        } else {
+            if (currentRoulette.length >= MAX_MOVIES) {
+                alert("¡Límite de películas en la ruleta alcanzado!");
+                return;
+            }
+            addMovie(movie);
+        }
+    }
+
+    //Función para Favoritos (Corregida)
+    async function toggleFavorite(movie: any, event: Event) {
+        event.preventDefault();
+        event.stopPropagation(); 
+
+        if (!session) return alert("Inicia sesión para guardar favoritos");
+
+        const movieId = movie.id;
+        if (!profile.movies_ids) profile.movies_ids = [];
+
+        if (profile.movies_ids.includes(movieId)) {
+            profile.movies_ids = profile.movies_ids.filter((id: number) => id !== movieId);
+        } else {
+            profile.movies_ids.push(movieId);
+        }
+        profile = profile; // Actualiza la vista
+        await saveProfile();
+    }
+
+    // 3. Función para Guardar en Base de Datos
+    async function saveProfile() {
+        if (!session?.user?.email) return;
+        const userEmail = session.user.email;
+
+        const { data: profileData } = await supabase
+            .from("profiles")
+            .select("*")
+            .eq("email", userEmail);
+
+        if (profileData?.length === 0) {
+            await supabase.from("profiles").insert({ ...profile, user_id: session.user.id, email: userEmail });
+        } else {
+            await supabase.from("profiles").update(profile).eq("email", userEmail);
+        }
     }
 </script>
 
@@ -117,12 +171,8 @@
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
 
   {#each filteredMovies as movie}
-  {console.log(movie.title)}
-    <div
+    <div class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300">
       
-      class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300"
-    >
-      <!-- Imagen -->
       <div class="w-full aspect-video overflow-hidden bg-black">
         <img
           src={movie.img}
@@ -131,22 +181,53 @@
         />
       </div>
 
-      <!-- Título -->
-      <div class="p-4">
-        <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors">
+      <div class="p-4 bg-slate-900">
+        <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors truncate">
           {movie.title}
         </h2>
       </div>
 
-      <!-- Overlay -->
       <a
         href={`/api/movies/${movie.id}`}
         class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10"
       >
-        <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors">
+        <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors mt-8">
           Ver detalles →
         </span>
       </a>
+
+      <div class="absolute top-2 right-2 z-20 flex flex-row gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        
+        <!--- boton favoritos y estrella --->
+        {#if session}
+            <button 
+                class="btn btn-circle btn-sm border-none shadow-lg {profile?.movies_ids?.includes(movie.id) ? 'bg-yellow-400 text-black hover:bg-yellow-500' : 'bg-gray-700/80 text-white hover:bg-gray-600'}"
+                on:click={(e) => toggleFavorite(movie, e)}
+                title="Favoritos"
+            >
+                <Star size={18} fill={profile?.movies_ids?.includes(movie.id) ? "currentColor" : "none"} />
+            </button>
+        {/if}
+
+        <!--- boton ruleta --->
+        <button 
+            class="btn btn-circle btn-sm border-none shadow-lg {$roulette.some(m => m.id === movie.id) ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-blue-500/80 text-white hover:bg-blue-600'}"
+            on:click={(e) => toggleRoulette(movie, e)}
+            title="Añadir a Ruleta"
+        >
+            <span class="font-bold text-lg">
+                {$roulette.some(m => m.id === movie.id) ? '-' : '+'}
+            </span>
+        </button>
+
+      </div>
+      
+      {#if profile?.movies_ids?.includes(movie.id)}
+         <div class="absolute top-2 left-2 z-10 text-yellow-400 drop-shadow-md pointer-events-none">
+            <Star fill="currentColor" size={20} />
+         </div>
+      {/if}
+
     </div>
   {/each}
 </div>

@@ -4,6 +4,9 @@
     import { page } from "$app/stores";
     import { getUserData } from "$lib/userInfo.js";
     import { onMount } from "svelte";
+    import { Star } from 'lucide-svelte';
+    import { get } from 'svelte/store';
+    import { roulette, addMovie, removeMovie, MAX_MOVIES } from '$lib/rouletteStore.js';
     export let data;
 
     let {supabase,session} = data
@@ -54,6 +57,42 @@
         location.reload()
     }
     
+    function toggleRoulette(movie: any, event: Event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const currentRoulette = get(roulette);
+        const isIn = currentRoulette.some((m: any) => m.id === movie.id);
+
+        if (isIn) {
+            removeMovie(movie.id);
+        } else {
+            if (currentRoulette.length >= MAX_MOVIES) {
+                alert("¡Límite alcanzado!");
+                return;
+            }
+            addMovie(movie);
+        }
+    }
+
+    async function toggleFavorite(movie: any, event: Event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        if (!session) return; 
+
+        const movieId = movie.id;
+        if (!profile.movies_ids) profile.movies_ids = [];
+
+        if (profile.movies_ids.includes(movieId)) {
+            profile.movies_ids = profile.movies_ids.filter((id: number) => id !== movieId);
+        } else {
+            profile.movies_ids.push(movieId);
+        }
+        profile = profile; 
+        await saveProfile();
+    }
+
 </script>
 {#if !profile.name || profile.name == ""}
     <title>Usuario - Movie Picker</title>
@@ -104,8 +143,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
                 {#each userMovies as movie}
                     <div class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300">
-                        
-                        <!-- peliculas -->
+                       
                         <div class="w-full aspect-video overflow-hidden bg-black">
                             <img
                                 src={movie.img}
@@ -114,18 +152,42 @@
                             />
                         </div>
 
-                        <!-- nombre de la peli -->
                         <div class="p-4 bg-slate-900">
                             <h2 class="text-lg font-semibold text-white text-center group-hover:text-blue-300 transition-colors truncate">
                                 {movie.title}
                             </h2>
                         </div>
-                        <a href={`/api/movies/${movie.id}`} class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10 rounded-2xl">
-                            <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors">
+
+                        <a href={`/api/movies/${movie.id}`} class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10">
+                            <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors mt-8">
                                 Ver detalles →
                             </span>
                         </a>
-                    </div>
+
+                        <div class="absolute top-2 right-2 z-20 flex flex-row gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            
+                            {#if session}
+                                <button 
+                                    class="btn btn-circle btn-sm border-none shadow-lg bg-yellow-400 text-black hover:bg-yellow-500"
+                                    on:click={(e) => toggleFavorite(movie, e)}
+                                    title="Quitar de Favoritos"
+                                >
+                                    <Star size={18} fill="currentColor" />
+                                </button>
+                            {/if}
+
+                            <button 
+                                class="btn btn-circle btn-sm border-none shadow-lg {$roulette.some(m => m.id === movie.id) ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-blue-500/80 text-white hover:bg-blue-600'}"
+                                on:click={(e) => toggleRoulette(movie, e)}
+                                title="Añadir a Ruleta"
+                            >
+                                <span class="font-bold text-lg">
+                                    {$roulette.some(m => m.id === movie.id) ? '-' : '+'}
+                                </span>
+                            </button>
+                        </div>
+                        
+                        </div>
                 {/each}
             </div>
         {:else}
