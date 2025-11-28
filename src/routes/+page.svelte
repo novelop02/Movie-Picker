@@ -5,6 +5,7 @@
     import { Star } from 'lucide-svelte';
     import { get } from 'svelte/store';
     import { roulette, addMovie, removeMovie, MAX_MOVIES } from '$lib/rouletteStore.js';
+    import { goto } from '$app/navigation';
     
 
     let movies:any = []
@@ -138,7 +139,17 @@ $: filteredMovies = session
         Crear cuenta
       </button></a>
     {/if}
-
+    
+    {#if session && (profile.age == "" || !profile.age)}
+      <div class="p-4">
+        <p class="text-gray-300 mt-3 text-lg">Completa tu perfil con tu edad para que te recomendemos peliculas!</p>
+        <button
+          class="btn btn-primary mt-5 px-6 text-lg shadow-md hover:scale-105 transition-transform"
+          on:click={() => goto(`/${session.user.email}`)}
+        > Ir a Mi Perfil
+        </button>
+      </div>
+    {:else}
     <!-- Buscador -->
     <div class="flex flex-col md:flex-row gap-4 w-full max-w-2xl mx-auto mt-8 mb-1">
       <div class="relative grow">
@@ -173,10 +184,10 @@ $: filteredMovies = session
             </select>
         </div>
     </div>
-  </div>
+  
 
 <!-- Grid -->
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4 pt-4">
 
   {#each filteredMovies as movie}
     <div class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300">
@@ -232,5 +243,6 @@ $: filteredMovies = session
     </div>
   {/each}
 </div>
-
+{/if}
+</div>
 </div>
