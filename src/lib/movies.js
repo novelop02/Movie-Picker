@@ -54,11 +54,6 @@ export let movies = [
     age: 15,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQocnzDCZAAUVijaPpjnO59zjIL3r8oVRXVYA&s'
 },
-
-/* ================================
-   NUEVAS PELÍCULAS AGREGADAS
-   ================================ */
-
 {
     id: 6,
     title: 'Interstellar',
@@ -223,10 +218,13 @@ export let movies = [
     genre: 'Acción / Ciencia ficción',
     age: 13,
     img: 'https://images3.alphacoders.com/132/1321665.jpg'
-}
-,
+},
 
-  {
+/* ================================
+   NUEVAS PELÍCULAS (con age agregado)
+   ================================ */
+
+{
     id: 21,
     title: 'Shrek 2',
     year: 2004,
@@ -234,6 +232,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Netflix',
     genre: 'Animación / Comedia',
+    age: 7,
     img: 'https://wallpapers.com/images/hd/shrek-2-poster-main-cast-1n0p7vu78dwbr3m0.jpg'
   },
   {
@@ -244,6 +243,7 @@ export let movies = [
     stars: 4.8,
     platform: 'HBO Max',
     genre: 'Ciencia ficción / Acción',
+    age: 18,
     img: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/26a479c4-486a-41a1-8d5a-30a3769b104d/dfi6ui6-4dfddcec-0c7f-468a-a05e-b034f3a27282.png/v1/fill/w_1185,h_674,q_70,strp/the_matrix__1999__wallpaper_by_stephen_fisher_dfi6ui6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA5MiIsInBhdGgiOiIvZi8yNmE0NzljNC00ODZhLTQxYTEtOGQ1YS0zMGEzNzY5YjEwNGQvZGZpNnVpNi00ZGZkZGNlYy0wYzdmLTQ2OGEtYTA1ZS1iMDM0ZjNhMjcyODIucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RzryS-efmm9Di4cuVWpb6D8X6ZNmJ1sTSHscelVb3UQ'
   },
   {
@@ -254,6 +254,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Disney+',
     genre: 'Animación / Familiar',
+    age: 0,
     img: 'https://lifestylewithsarah.com/wp-content/uploads/2019/07/lion-king-poster.jpg?w=582&h=328'
   },
   {
@@ -264,6 +265,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Hulu',
     genre: 'Drama / Suspenso',
+    age: 16,
     img: 'https://www.vintagemovieposters.co.uk/wp-content/uploads/2020/03/IMG_3746-scaled.jpeg'
   },
   {
@@ -274,6 +276,7 @@ export let movies = [
     stars: 4.7,
     platform: 'HBO Max',
     genre: 'Drama / Crimen',
+    age: 18,
     img: 'https://ntvb.tmsimg.com/assets/p15791706_v_h8_ai.jpg?w=1280&h=720'
   },
   {
@@ -284,6 +287,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Disney+',
     genre: 'Animación / Familiar',
+    age: 0,
     img: 'https://i.pinimg.com/736x/ee/dd/a2/eedda282cce0908addaea7c7cdb85c5b.jpg'
   },
   {
@@ -294,6 +298,7 @@ export let movies = [
     stars: 5.0,
     platform: 'Netflix',
     genre: 'Drama',
+    age: 16,
     img: 'https://myhotposters.com/cdn/shop/products/mHP0131_1024x1024.jpeg?v=1748542019'
   },
   {
@@ -304,6 +309,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Disney+',
     genre: 'Animación / Aventura',
+    age: 0,
     img: 'https://i.pinimg.com/736x/40/36/da/4036da77a71f34a1db1b2d5f6b79a4d9.jpg'
   },
   {
@@ -314,6 +320,7 @@ export let movies = [
     stars: 4.5,
     platform: 'Disney+',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://i.pinimg.com/736x/a3/77/e7/a377e72a833f88a48089489ea5acddc0.jpg'
   },
   {
@@ -324,6 +331,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Drama / Romance',
+    age: 13,
     img: 'https://m.media-amazon.com/images/I/61z62YqWV5L._AC_UF894,1000_QL80_.jpg'
   },
   {
@@ -334,6 +342,7 @@ export let movies = [
     stars: 4.6,
     platform: 'Disney+',
     genre: 'Animación / Fantasía',
+    age: 0,
     img: 'https://images7.alphacoders.com/112/1120950.jpg'
   },
   {
@@ -344,6 +353,7 @@ export let movies = [
     stars: 4.5,
     platform: 'Netflix',
     genre: 'Comedia / Adolescente',
+    age: 18,
     img: 'https://i.ebayimg.com/00/s/OTAwWDE2MDA=/z/KbQAAOSwLDZkRu98/$_57.JPG?set_id=880000500F'
   },
   {
@@ -354,6 +364,7 @@ export let movies = [
     stars: 4.4,
     platform: 'Hulu',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://w0.peakpx.com/wallpaper/442/927/HD-wallpaper-the-hunger-games-movie-01.jpg'
   },
   {
@@ -364,6 +375,7 @@ export let movies = [
     stars: 4.3,
     platform: 'HBO Max',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://images.squarespace-cdn.com/content/v1/5e1f0187d17eee43e64faa27/1597332912040-356IGUJLZ314MXR1NX5K/tenet-movie-poster-01-700x400-1.jpg'
   },
   {
@@ -374,6 +386,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Paramount+',
     genre: 'Drama / Ciencia ficción',
+    age: 10,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqZCiHMcT2ck7npdaPADg7t18l2F-B2Hcgiw&s'
   },
   {
@@ -384,6 +397,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Animación / Acción',
+    age: 7,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnuxisNoUaYsOd56WVTzSkioQ1DLJwEVQew&s'
   },
   {
@@ -394,6 +408,7 @@ export let movies = [
     stars: 4.4,
     platform: 'HBO Max',
     genre: 'Terror / Suspenso',
+    age: 18,
     img: 'https://ntvb.tmsimg.com/assets/p9379266_v_h10_ab.jpg?w=960&h=540'
   },
   {
@@ -404,6 +419,7 @@ export let movies = [
     stars: 4.5,
     platform: 'Netflix',
     genre: 'Romance / Drama',
+    age: 13,
     img: 'https://visitboise.com/wp-content/uploads/2024/07/the-notebook.jpg'
   },
   {
@@ -414,6 +430,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Amazon Prime',
     genre: 'Aventura / Ciencia ficción',
+    age: 13,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQyBKGpWmtaskThT7UnWXLTVZH2I1d4krfLA&s'
   },
   {
@@ -424,6 +441,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Hulu',
     genre: 'Drama / Misterio',
+    age: 13,
     img: 'https://images8.alphacoders.com/112/1121403.jpg'
   },
   {
@@ -434,6 +452,7 @@ export let movies = [
   stars: 4.8,
   platform: 'HBO Max',
   genre: 'Animación / Ciencia ficción',
+  age: 7,
   img: 'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/irongiantukquadlarge1.jpg'
 },
 {
@@ -444,6 +463,7 @@ export let movies = [
   stars: 4.8,
   platform: 'Disney+',
   genre: 'Animación / Comedia',
+  age: 0,
   img: 'https://images.squarespace-cdn.com/content/v1/54400c3de4b06a018e97259e/e7313a63-1ce6-473c-9143-6912eabbfcd4/ratatouille+horizontal.jpg'
 },
 {
@@ -454,6 +474,7 @@ export let movies = [
   stars: 4.9,
   platform: 'Disney+',
   genre: 'Animación / Aventura',
+  age: 0,
   img: 'https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/3969ca4d-9dbc-474c-81b4-97b0ac493022/compose?aspectRatio=1.78&format=webp&width=1200'
 },
 {
@@ -464,6 +485,7 @@ export let movies = [
   stars: 4.4,
   platform: 'Amazon Prime',
   genre: 'Drama / Ciencia ficción',
+  age: 16,
   img: 'https://www.afundacion.org/images/cesionsalas/79887/her_3__narrow.jpg'
 },
 {
@@ -474,6 +496,7 @@ export let movies = [
   stars: 4.6,
   platform: 'Netflix',
   genre: 'Biografía / Comedia negra',
+  age: 18,
   img: 'https://wallpapers.com/images/hd/wolf-of-wall-street-movie-poster-dcz1czdi16k7oxts.jpg'
 },
 {
@@ -484,6 +507,7 @@ export let movies = [
   stars: 4.7,
   platform: 'Paramount+',
   genre: 'Drama / Ciencia ficción',
+  age: 10,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQsriomZknpZOThjj2DdwFMm9kt_KQPdV8jQ&s'
 },
 {
@@ -494,6 +518,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Amazon Prime',
   genre: 'Misterio / Comedia',
+  age: 13,
   img: 'https://syllepsis.live/wp-content/uploads/2020/06/knives-out.jpg'
 },
 {
@@ -504,6 +529,7 @@ export let movies = [
   stars: 4.9,
   platform: 'Crunchyroll',
   genre: 'Animación / Romance',
+  age: 10,
   img: 'https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/e54ezd6macagzovidvmk.jpg'
 },
 {
@@ -514,6 +540,7 @@ export let movies = [
   stars: 4.4,
   platform: 'HBO Max',
   genre: 'Aventura / Drama',
+  age: 16,
   img: 'https://pursuitofitall.com/wp-content/uploads/2016/02/the-revenant-movie-poster-horizontal.jpg'
 },
 {
@@ -524,6 +551,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Prime Video',
   genre: 'Ciencia ficción / Drama',
+  age: 13,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvbWsAXWkqnGtjsriN0fzJuwRUyaC4UHumXA&s'
 },
 {
@@ -534,6 +562,7 @@ export let movies = [
   stars: 4.4,
   platform: 'Netflix',
   genre: 'Biografía / Drama',
+  age: 13,
   img: 'https://www.lstylegstyle.com/wp-content/uploads/2014/12/The-Imitation-Game-Quad-poster-Benedict-Cumberbatch1.jpg'
 },
 {
@@ -544,6 +573,7 @@ export let movies = [
   stars: 4.6,
   platform: 'HBO Max',
   genre: 'Guerra / Drama',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2JpWjbhOciyhBxdt8uGhJiFHmLq7OCexokw&s'
 },
 {
@@ -554,6 +584,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Disney+',
   genre: 'Ciencia ficción / Aventura',
+  age: 13,
   img: 'https://www.bnl.gov/today/body_pics/2016/09/martian-poster-720px.jpg'
 },
 {
@@ -564,6 +595,7 @@ export let movies = [
   stars: 4.3,
   platform: 'Star+',
   genre: 'Suspenso / Misterio',
+  age: 18,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Dfb2C_DTMqJk6VyeqTk5UAeEPnqu0TIHog&s'
 },
 {
@@ -574,16 +606,18 @@ export let movies = [
   stars: 4.8,
   platform: 'HBO Max',
   genre: 'Drama / Fantasía',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGodAS2M6iM-icEs_AsUhdNybsHd87ZsxvfQ&s'
 },
 {
   id: 56,
-  title: 'Interstellar 5555',
+  title: 'Interstella 5555',
   year: 2003,
   description: 'Una banda alienígena es secuestrada y convertida en un éxito musical en la Tierra en esta película musical de Daft Punk.',
   stars: 4.2,
   platform: 'YouTube',
   genre: 'Animación / Música / Ciencia ficción',
+  age: 10,
   img: 'https://www.rhino.com/sites/g/files/g2000012691/files/styles/landing_banner/public/2024-10/dp1no.jpg?itok=7uTg-ieu'
 },
 {
@@ -594,6 +628,7 @@ export let movies = [
   stars: 4.6,
   platform: 'Prime Video',
   genre: 'Suspenso / Crimen',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0BbOzsagvwCLvdjP--6M6yp_gWY0MpxGWg&s'
 },
 {
@@ -604,6 +639,7 @@ export let movies = [
   stars: 4.4,
   platform: 'HBO Max',
   genre: 'Drama / Fantasía',
+  age: 13,
   img: 'https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/05042fc5-444f-4313-a375-827c5bc69a06/e9daa47b-7e79-44da-9b58-578286964334?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500'
 },
 {
@@ -614,6 +650,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Netflix',
   genre: 'Crimen / Suspenso',
+  age: 18,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhbTsaV0ffDkcqGf_akSjQDsZosCfLz6eDLg&s'
 },
 {
@@ -624,6 +661,7 @@ export let movies = [
   stars: 4.2,
   platform: 'Disney+',
   genre: 'Aventura / Comedia / Drama',
+  age: 10,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvaLIzPobgDncWEPlWHHhP1WzqoAKrtlYbwA&s'
 },
 {
@@ -634,6 +672,7 @@ export let movies = [
   stars: 4.7,
   platform: 'Disney+',
   genre: 'Acción / Drama / Ciencia ficción',
+  age: 18,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaVUYf7Yb_pC02rraDdzEaWzXNL43YcanxcQ&s'
 },
 {
@@ -644,6 +683,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Prime Video',
   genre: 'Biografía / Drama',
+  age: 13,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwARcXZExI7RcG3x0agWRQPeV16DRIOffDVA&s'
 },
 {
@@ -654,6 +694,7 @@ export let movies = [
   stars: 4.3,
   platform: 'Netflix',
   genre: 'Acción / Comedia / Fantasía',
+  age: 13,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk6_YALptRSMO4mX1voSP4JaawvOfBsbYzrA&s'
 },
 {
@@ -664,6 +705,7 @@ export let movies = [
   stars: 4.1,
   platform: 'YouTube',
   genre: 'Música / Concierto',
+  age: 12,
   img: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f8b2ef92655071.5e505bf7132ab.png'
 },
 {
@@ -674,6 +716,7 @@ export let movies = [
   stars: 4.3,
   platform: 'HBO Max',
   genre: 'Fantasía / Drama / Romance',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVk3GoB7bM834D2RCnytFIj_hiIZiUhkRQww&s'
 },
 {
@@ -684,6 +727,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Prime Video',
   genre: 'Drama / Biografía',
+  age: 18,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWMAtjzLiZ-NK5F_fFSa8n7XSW9G73i17r8Q&s'
 },
 {
@@ -694,6 +738,7 @@ export let movies = [
   stars: 4.6,
   platform: 'Netflix',
   genre: 'Drama / Suspenso',
+  age: 16,
   img: 'https://m.media-amazon.com/images/M/MV5BMGFhMjhjN2ItNTZkZi00ZDdkLThkNzEtYTJhZjM1NDMxNGYzXkEyXkFqcGc@._V1_.jpg'
 },
 {
@@ -704,6 +749,7 @@ export let movies = [
   stars: 4.4,
   platform: 'Netflix',
   genre: 'Drama / Biografía',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg_hGhPpQ8U9ryMEnLIhgLWAdPZGkavtLUw&s'
 },
 {
@@ -714,6 +760,7 @@ export let movies = [
   stars: 4.6,
   platform: 'HBO Max',
   genre: 'Drama',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPye4ttniZ3wTg5WJjNWkHpuJr6TbSj0_oZg&s'
 },
 {
@@ -724,6 +771,7 @@ export let movies = [
   stars: 4.7,
   platform: 'Prime Video',
   genre: 'Drama / Biografía / Guerra',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBWQt7pYKLhlMJxlKTxyQYLNOY9Xi15HTZQ&s'
 },
 {
@@ -734,6 +782,7 @@ export let movies = [
   stars: 4.8,
   platform: 'Netflix',
   genre: 'Comedia / Drama',
+  age: 12,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPDVb2hLN7d2cBe2NOviZVq2PhwrJSTjCyg&s'
 },
 {
@@ -744,6 +793,7 @@ export let movies = [
   stars: 4.3,
   platform: 'Star+',
   genre: 'Comedia / Drama',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ECxN6r4YEhfZFIUBXJVNGlF2bjPWppJx1Q&s'
 },
 {
@@ -754,6 +804,7 @@ export let movies = [
   stars: 4.3,
   platform: 'Netflix',
   genre: 'Romance / Comedia / Drama',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo3ktytnGxpJNazZ2w1leDc_bpHg5k1Btesg&s'
 },
 {
@@ -764,6 +815,7 @@ export let movies = [
   stars: 4.5,
   platform: 'HBO Max',
   genre: 'Acción / Ciencia ficción',
+  age: 13,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVlK3uIdVsT1YeJMfwUsw2tHFw_9QDKl8Ew&s'
 },
 {
@@ -774,6 +826,7 @@ export let movies = [
   stars: 4.4,
   platform: 'Netflix',
   genre: 'Comedia / Acción',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8OkRYWwBVkP53YXbs0sEy9ETbz98HYvvcg&s'
 },
 {
@@ -784,6 +837,7 @@ export let movies = [
   stars: 4.3,
   platform: 'Netflix',
   genre: 'Drama',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOlBLh4s59jlX7v6sq3jC46UK2PfZlG4mVuw&s'
 },
 {
@@ -794,6 +848,7 @@ export let movies = [
   stars: 4.7,
   platform: 'Prime Video',
   genre: 'Guerra / Drama / Biografía',
+  age: 16,
   img: 'https://w0.peakpx.com/wallpaper/48/874/HD-wallpaper-movie-hacksaw-ridge.jpg'
 },
 {
@@ -804,6 +859,7 @@ export let movies = [
   stars: 3.9,
   platform: 'YouTube',
   genre: 'Documental / Historia',
+  age: 0,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSdLaEGcCJy4AkdATsQI_QvHRwxfSs-XuVGA&s'
 },
 {
@@ -814,6 +870,7 @@ export let movies = [
   stars: 4.3,
   platform: 'Netflix',
   genre: 'Crimen / Suspenso',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs9pWwVw6DQSPQwnoMOb-k8C7AQDvndNjZ6Q&s'
 },
 {
@@ -824,6 +881,7 @@ export let movies = [
   stars: 4.6,
   platform: 'Prime Video',
   genre: 'Suspenso / Misterio',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlqoDTb7mUoZlIjg9megYmPxIQrdC5GGfT1Q&s'
 },
 {
@@ -834,6 +892,7 @@ export let movies = [
   stars: 4.4,
   platform: 'Disney+',
   genre: 'Aventura / Drama / Fantasía',
+  age: 10,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqSXWe-LBG5m2H3VOu_qX22UxuOW9exZDtGQ&s'
 },
 {
@@ -844,6 +903,7 @@ export let movies = [
   stars: 4.5,
   platform: 'Prime Video',
   genre: 'Ciencia ficción / Drama / Suspenso',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ccUAiL0UKpjNUJQ48QZINU5t45FLddrGgA&s'
 },
 {
@@ -854,7 +914,7 @@ export let movies = [
   stars: 4.6,
   platform: 'HBO Max',
   genre: 'Suspenso / Misterio',
+  age: 16,
   img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvBlhG5DnWJRGyO7gqPNrhPMpWkk9u4Bq8w&s'
 }
-
 ];
