@@ -7,9 +7,10 @@ export let movies = [
     stars: 4.2,
     platform: 'Disney+',
     genre: 'Familiar / Comedia',
+    age: 7,
     img: 'https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/5ffd1c71-db56-4f61-b781-fd476de31c34/compose?aspectRatio=1.78&format=webp&width=1200'
-  },
-  {
+},
+{
     id: 2,
     title: 'Inception',
     year: 2010,
@@ -17,9 +18,10 @@ export let movies = [
     stars: 4.8,
     platform: 'Netflix',
     genre: 'Ciencia ficción / Suspenso',
+    age: 13,
     img: 'https://www.abirpothi.com/wp-content/uploads/2024/01/small-spos8308-poster-inception-animated-wall-poster-sl-8308-original-imaghzwanmepwc89.webp'
-  },
-  {
+},
+{
     id: 3,
     title: 'Spirited Away',
     year: 2001,
@@ -27,9 +29,10 @@ export let movies = [
     stars: 4.9,
     platform: 'HBO Max',
     genre: 'Animación / Fantasía',
+    age: 10,
     img: 'https://www.tallengestore.com/cdn/shop/files/SpiritedAway-HayaoMiyazaki-StudioGhibli-JapaneseAnimationMoviePoster_8718979f-1c9e-48d4-a59c-449685e50014.jpg?v=1733380928'
-  },
-  {
+},
+{
     id: 4,
     title: 'The Grand Budapest Hotel',
     year: 2014,
@@ -37,9 +40,10 @@ export let movies = [
     stars: 4.3,
     platform: 'Hulu',
     genre: 'Comedia / Drama',
+    age: 15,
     img: 'https://www.thesocietyofthecrossedkeys.com/cdn/shop/products/GBHHorizontal2_984x.jpg?v=1618907630'
-  },
-  {
+},
+{
     id: 5,
     title: 'Everything Everywhere All at Once',
     year: 2022,
@@ -47,14 +51,10 @@ export let movies = [
     stars: 4.7,
     platform: 'Paramount+',
     genre: 'Ciencia ficción / Acción',
+    age: 15,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQocnzDCZAAUVijaPpjnO59zjIL3r8oVRXVYA&s'
-  },
-
-  /* ================================
-     NUEVAS PELÍCULAS AGREGADAS
-     ================================ */
-
-  {
+},
+{
     id: 6,
     title: 'Interstellar',
     year: 2014,
@@ -62,9 +62,10 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Ciencia ficción / Drama',
+    age: 13,
     img: 'https://img.englishcinemaparis.com/nKizXKvqQfZzAMBylGXBi7TuU37mFVp7Mb9phhtftSw/resize:fill:800:450:1:0/gravity:sm/aHR0cHM6Ly9leHBhdGNpbmVtYXByb2QuYmxvYi5jb3JlLndpbmRvd3MubmV0L2ltYWdlcy82MGMzNzFhMy0yNzQyLTQwZWYtYTQwOS1kMzE0NmI0YTNlNDQuanBn.jpg'
-  },
-  {
+},
+{
     id: 7,
     title: 'La La Land',
     year: 2016,
@@ -72,9 +73,10 @@ export let movies = [
     stars: 4.6,
     platform: 'Amazon Prime',
     genre: 'Musical / Romance',
+    age: 12,
     img: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f8b2ef92655071.5e505bf7132ab.png'
-  },
-  {
+},
+{
     id: 8,
     title: 'Coco',
     year: 2017,
@@ -82,9 +84,10 @@ export let movies = [
     stars: 4.8,
     platform: 'Disney+',
     genre: 'Animación / Familiar',
+    age: 7,
     img: 'https://stanleymovietheater.com/wp-content/uploads/2020/10/Coco-Family-Poster-Pixar.jpg'
-  },
-  {
+},
+{
     id: 9,
     title: 'The Batman',
     year: 2022,
@@ -92,9 +95,10 @@ export let movies = [
     stars: 4.5,
     platform: 'HBO Max',
     genre: 'Acción / Crimen',
+    age: 15,
     img: 'https://preview.redd.it/rdcg5mue1sy71.jpg?auto=webp&s=05854e04c45ad509986a5e5406853cbecf7f38b6'
-  },
-  {
+},
+{
     id: 10,
     title: 'Dune',
     year: 2021,
@@ -102,8 +106,9 @@ export let movies = [
     stars: 4.6,
     platform: 'HBO Max',
     genre: 'Ciencia ficción / Aventura',
+    age: 12,
     img: 'https://cdnb.artstation.com/p/assets/images/images/037/636/465/large/andres-mencia-e6d693ce-a635-425f-811b-9354846b0e31-rw-1920.jpg?1620903148'
-  },
+},
   {
     id: 11,
     title: 'Avatar',
@@ -112,9 +117,10 @@ export let movies = [
     stars: 4.3,
     platform: 'Disney+',
     genre: 'Ciencia ficción / Aventura',
+    age: 13,
     img: 'https://lumiere-a.akamaihd.net/v1/images/avatar-twow-videobg02_fae5d62e.jpeg?region=0,0,1920,1080&width=768'
-  },
-  {
+},
+{
     id: 12,
     title: 'Pulp Fiction',
     year: 1994,
@@ -122,9 +128,10 @@ export let movies = [
     stars: 4.7,
     platform: 'Amazon Prime',
     genre: 'Crimen / Drama',
+    age: 18,
     img: 'https://i.pinimg.com/736x/9e/96/fd/9e96fdae2f6b383e60ffaa610dbdffd0.jpg'
-  },
-  {
+},
+{
     id: 13,
     title: 'Mad Max: Fury Road',
     year: 2015,
@@ -132,9 +139,10 @@ export let movies = [
     stars: 4.8,
     platform: 'HBO Max',
     genre: 'Acción / Ciencia ficción',
+    age: 16,
     img: 'https://m.media-amazon.com/images/I/81J6CaUe+GL._AC_UF1000,1000_QL80_.jpg'
-  },
-  {
+},
+{
     id: 14,
     title: 'The Social Network',
     year: 2010,
@@ -142,9 +150,10 @@ export let movies = [
     stars: 4.4,
     platform: 'Netflix',
     genre: 'Drama / Biografía',
+    age: 14,
     img: 'https://sobrosnetwork.com/wp-content/uploads/2023/10/the-social-network-1024x576.jpg'
-  },
-  {
+},
+{
     id: 15,
     title: 'Whiplash',
     year: 2014,
@@ -152,9 +161,10 @@ export let movies = [
     stars: 4.8,
     platform: 'Amazon Prime',
     genre: 'Drama / Música',
+    age: 15,
     img: 'https://cinescopia.com/wp-content/uploads/2015/01/Whiplash-Movie-Images.jpg'
-  },
-  {
+},
+{
     id: 16,
     title: 'Blade Runner 2049',
     year: 2017,
@@ -162,9 +172,10 @@ export let movies = [
     stars: 4.6,
     platform: 'HBO Max',
     genre: 'Ciencia ficción / Misterio',
+    age: 16,
     img: 'https://cdn.europosters.eu/image/750/50060.jpg'
-  },
-  {
+},
+{
     id: 17,
     title: 'The Dark Knight',
     year: 2008,
@@ -172,9 +183,10 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Acción / Crimen',
+    age: 13,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgZfKfxlc4n58CHTOXkHq675RBC87jxBdcfQ&s'
-  },
-  {
+},
+{
     id: 18,
     title: 'Oppenheimer',
     year: 2023,
@@ -182,9 +194,10 @@ export let movies = [
     stars: 4.8,
     platform: 'Peacock',
     genre: 'Biografía / Drama',
+    age: 16,
     img: 'https://cdnb.artstation.com/p/assets/images/images/078/442/485/large/huzi7-oppenheimer-landscape.jpg?1722115669'
-  },
-  {
+},
+{
     id: 19,
     title: 'Barbie',
     year: 2023,
@@ -192,9 +205,10 @@ export let movies = [
     stars: 4.2,
     platform: 'Max',
     genre: 'Comedia / Fantasía',
+    age: 10,
     img: 'https://sm.ign.com/ign_latam/news/b/barbie-mov/barbie-movie-posters-reveal-more-barbies-kens-and-separately_8n35.jpg'
-  },
-  {
+},
+{
     id: 20,
     title: 'Guardians of the Galaxy Vol. 3',
     year: 2023,
@@ -202,14 +216,15 @@ export let movies = [
     stars: 4.5,
     platform: 'Disney+',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://images3.alphacoders.com/132/1321665.jpg'
-  },
+},
 
-  /* ================================
-     20 NUEVAS PELÍCULAS EXTRA
-     ================================ */
+/* ================================
+   NUEVAS PELÍCULAS (con age agregado)
+   ================================ */
 
-  {
+{
     id: 21,
     title: 'Shrek 2',
     year: 2004,
@@ -217,6 +232,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Netflix',
     genre: 'Animación / Comedia',
+    age: 7,
     img: 'https://wallpapers.com/images/hd/shrek-2-poster-main-cast-1n0p7vu78dwbr3m0.jpg'
   },
   {
@@ -227,6 +243,7 @@ export let movies = [
     stars: 4.8,
     platform: 'HBO Max',
     genre: 'Ciencia ficción / Acción',
+    age: 18,
     img: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/26a479c4-486a-41a1-8d5a-30a3769b104d/dfi6ui6-4dfddcec-0c7f-468a-a05e-b034f3a27282.png/v1/fill/w_1185,h_674,q_70,strp/the_matrix__1999__wallpaper_by_stephen_fisher_dfi6ui6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA5MiIsInBhdGgiOiIvZi8yNmE0NzljNC00ODZhLTQxYTEtOGQ1YS0zMGEzNzY5YjEwNGQvZGZpNnVpNi00ZGZkZGNlYy0wYzdmLTQ2OGEtYTA1ZS1iMDM0ZjNhMjcyODIucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RzryS-efmm9Di4cuVWpb6D8X6ZNmJ1sTSHscelVb3UQ'
   },
   {
@@ -237,6 +254,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Disney+',
     genre: 'Animación / Familiar',
+    age: 0,
     img: 'https://lifestylewithsarah.com/wp-content/uploads/2019/07/lion-king-poster.jpg?w=582&h=328'
   },
   {
@@ -247,6 +265,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Hulu',
     genre: 'Drama / Suspenso',
+    age: 16,
     img: 'https://www.vintagemovieposters.co.uk/wp-content/uploads/2020/03/IMG_3746-scaled.jpeg'
   },
   {
@@ -257,6 +276,7 @@ export let movies = [
     stars: 4.7,
     platform: 'HBO Max',
     genre: 'Drama / Crimen',
+    age: 18,
     img: 'https://ntvb.tmsimg.com/assets/p15791706_v_h8_ai.jpg?w=1280&h=720'
   },
   {
@@ -267,6 +287,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Disney+',
     genre: 'Animación / Familiar',
+    age: 0,
     img: 'https://i.pinimg.com/736x/ee/dd/a2/eedda282cce0908addaea7c7cdb85c5b.jpg'
   },
   {
@@ -277,6 +298,7 @@ export let movies = [
     stars: 5.0,
     platform: 'Netflix',
     genre: 'Drama',
+    age: 16,
     img: 'https://myhotposters.com/cdn/shop/products/mHP0131_1024x1024.jpeg?v=1748542019'
   },
   {
@@ -287,6 +309,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Disney+',
     genre: 'Animación / Aventura',
+    age: 0,
     img: 'https://i.pinimg.com/736x/40/36/da/4036da77a71f34a1db1b2d5f6b79a4d9.jpg'
   },
   {
@@ -297,6 +320,7 @@ export let movies = [
     stars: 4.5,
     platform: 'Disney+',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://i.pinimg.com/736x/a3/77/e7/a377e72a833f88a48089489ea5acddc0.jpg'
   },
   {
@@ -307,6 +331,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Drama / Romance',
+    age: 13,
     img: 'https://m.media-amazon.com/images/I/61z62YqWV5L._AC_UF894,1000_QL80_.jpg'
   },
   {
@@ -317,17 +342,19 @@ export let movies = [
     stars: 4.6,
     platform: 'Disney+',
     genre: 'Animación / Fantasía',
+    age: 0,
     img: 'https://images7.alphacoders.com/112/1120950.jpg'
   },
   {
     id: 32,
-    title: 'The Wolf of Wall Street',
-    year: 2013,
-    description: 'Jordan Belfort asciende en el mundo de las finanzas rodeado de excesos y corrupción.',
-    stars: 4.7,
-    platform: 'Amazon Prime',
-    genre: 'Biografía / Drama',
-    img: 'https://ntvb.tmsimg.com/assets/p9991602_v_h8_af.jpg?w=960&h=540'
+    title: 'Superbad',
+    year: 2007,
+    description: 'Dos mejores amigos intentan disfrutar su última noche antes de graduarse, enfrentándose a situaciones absurdas y caóticas.',
+    stars: 4.5,
+    platform: 'Netflix',
+    genre: 'Comedia / Adolescente',
+    age: 18,
+    img: 'https://i.ebayimg.com/00/s/OTAwWDE2MDA=/z/KbQAAOSwLDZkRu98/$_57.JPG?set_id=880000500F'
   },
   {
     id: 33,
@@ -337,6 +364,7 @@ export let movies = [
     stars: 4.4,
     platform: 'Hulu',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://w0.peakpx.com/wallpaper/442/927/HD-wallpaper-the-hunger-games-movie-01.jpg'
   },
   {
@@ -347,6 +375,7 @@ export let movies = [
     stars: 4.3,
     platform: 'HBO Max',
     genre: 'Acción / Ciencia ficción',
+    age: 13,
     img: 'https://images.squarespace-cdn.com/content/v1/5e1f0187d17eee43e64faa27/1597332912040-356IGUJLZ314MXR1NX5K/tenet-movie-poster-01-700x400-1.jpg'
   },
   {
@@ -357,6 +386,7 @@ export let movies = [
     stars: 4.8,
     platform: 'Paramount+',
     genre: 'Drama / Ciencia ficción',
+    age: 10,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqZCiHMcT2ck7npdaPADg7t18l2F-B2Hcgiw&s'
   },
   {
@@ -367,6 +397,7 @@ export let movies = [
     stars: 4.9,
     platform: 'Netflix',
     genre: 'Animación / Acción',
+    age: 7,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnuxisNoUaYsOd56WVTzSkioQ1DLJwEVQew&s'
   },
   {
@@ -377,6 +408,7 @@ export let movies = [
     stars: 4.4,
     platform: 'HBO Max',
     genre: 'Terror / Suspenso',
+    age: 18,
     img: 'https://ntvb.tmsimg.com/assets/p9379266_v_h10_ab.jpg?w=960&h=540'
   },
   {
@@ -387,6 +419,7 @@ export let movies = [
     stars: 4.5,
     platform: 'Netflix',
     genre: 'Romance / Drama',
+    age: 13,
     img: 'https://visitboise.com/wp-content/uploads/2024/07/the-notebook.jpg'
   },
   {
@@ -397,6 +430,7 @@ export let movies = [
     stars: 4.7,
     platform: 'Amazon Prime',
     genre: 'Aventura / Ciencia ficción',
+    age: 13,
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQyBKGpWmtaskThT7UnWXLTVZH2I1d4krfLA&s'
   },
   {
@@ -407,9 +441,11 @@ export let movies = [
     stars: 4.8,
     platform: 'Hulu',
     genre: 'Drama / Misterio',
+    age: 13,
     img: 'https://images8.alphacoders.com/112/1121403.jpg'
   },
   {
+<<<<<<< HEAD
     id: 41,
     title: 'The Silence of the Lambs',
     year: 1991,
@@ -510,3 +546,478 @@ export let movies = [
     img: 'https://acidburnshorrorshow.wordpress.com/wp-content/uploads/2018/07/a-quiet-place-poster.jpg'
   }
 ];
+=======
+  id: 41,
+  title: 'The Iron Giant',
+  year: 1999,
+  description: 'Un niño descubre y protege a un robot gigante del gobierno.',
+  stars: 4.8,
+  platform: 'HBO Max',
+  genre: 'Animación / Ciencia ficción',
+  age: 7,
+  img: 'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/irongiantukquadlarge1.jpg'
+},
+{
+  id: 42,
+  title: 'Ratatouille',
+  year: 2007,
+  description: 'Un ratón con talento culinario demuestra que cualquiera puede cocinar en un restaurante de París.',
+  stars: 4.8,
+  platform: 'Disney+',
+  genre: 'Animación / Comedia',
+  age: 0,
+  img: 'https://images.squarespace-cdn.com/content/v1/54400c3de4b06a018e97259e/e7313a63-1ce6-473c-9143-6912eabbfcd4/ratatouille+horizontal.jpg'
+},
+{
+  id: 43,
+  title: 'The Lion King',
+  year: 1994,
+  description: 'Un joven león debe asumir su destino y reclamar su lugar como rey de la sabana.',
+  stars: 4.9,
+  platform: 'Disney+',
+  genre: 'Animación / Aventura',
+  age: 0,
+  img: 'https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/3969ca4d-9dbc-474c-81b4-97b0ac493022/compose?aspectRatio=1.78&format=webp&width=1200'
+},
+{
+  id: 44,
+  title: 'Her',
+  year: 2013,
+  description: 'Un escritor solitario desarrolla una relación inesperada con una inteligencia artificial.',
+  stars: 4.4,
+  platform: 'Amazon Prime',
+  genre: 'Drama / Ciencia ficción',
+  age: 16,
+  img: 'https://www.afundacion.org/images/cesionsalas/79887/her_3__narrow.jpg'
+},
+{
+  id: 45,
+  title: 'The Wolf of Wall Street',
+  year: 2013,
+  description: 'La historia real de un corredor de bolsa que asciende al poder a través de fraudes y excesos.',
+  stars: 4.6,
+  platform: 'Netflix',
+  genre: 'Biografía / Comedia negra',
+  age: 18,
+  img: 'https://wallpapers.com/images/hd/wolf-of-wall-street-movie-poster-dcz1czdi16k7oxts.jpg'
+},
+{
+  id: 46,
+  title: 'The Truman Show',
+  year: 1998,
+  description: 'Un hombre descubre que toda su vida es un reality show transmitido al mundo.',
+  stars: 4.7,
+  platform: 'Paramount+',
+  genre: 'Drama / Ciencia ficción',
+  age: 10,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQsriomZknpZOThjj2DdwFMm9kt_KQPdV8jQ&s'
+},
+{
+  id: 47,
+  title: 'Knives Out',
+  year: 2019,
+  description: 'Un detective investiga un misterioso asesinato dentro de una excéntrica familia.',
+  stars: 4.5,
+  platform: 'Amazon Prime',
+  genre: 'Misterio / Comedia',
+  age: 13,
+  img: 'https://syllepsis.live/wp-content/uploads/2020/06/knives-out.jpg'
+},
+{
+  id: 48,
+  title: 'Your Name',
+  year: 2016,
+  description: 'Dos adolescentes que intercambian cuerpos deben encontrar la manera de conectarse antes de que sea tarde.',
+  stars: 4.9,
+  platform: 'Crunchyroll',
+  genre: 'Animación / Romance',
+  age: 10,
+  img: 'https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/e54ezd6macagzovidvmk.jpg'
+},
+{
+  id: 49,
+  title: 'The Revenant',
+  year: 2015,
+  description: 'Un hombre lucha por sobrevivir en la naturaleza mientras busca venganza.',
+  stars: 4.4,
+  platform: 'HBO Max',
+  genre: 'Aventura / Drama',
+  age: 16,
+  img: 'https://pursuitofitall.com/wp-content/uploads/2016/02/the-revenant-movie-poster-horizontal.jpg'
+},
+{
+  id: 50,
+  title: 'Arrival',
+  year: 2016,
+  description: 'Una lingüista es reclutada para comunicarse con seres extraterrestres que llegan misteriosamente a la Tierra.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Ciencia ficción / Drama',
+  age: 13,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvbWsAXWkqnGtjsriN0fzJuwRUyaC4UHumXA&s'
+},
+{
+  id: 51,
+  title: 'The Imitation Game',
+  year: 2014,
+  description: 'La historia de Alan Turing y su crucial trabajo para descifrar los códigos nazis durante la Segunda Guerra Mundial.',
+  stars: 4.4,
+  platform: 'Netflix',
+  genre: 'Biografía / Drama',
+  age: 13,
+  img: 'https://www.lstylegstyle.com/wp-content/uploads/2014/12/The-Imitation-Game-Quad-poster-Benedict-Cumberbatch1.jpg'
+},
+{
+  id: 52,
+  title: '1917',
+  year: 2019,
+  description: 'Dos jóvenes soldados británicos reciben la misión de entregar un mensaje que podría salvar miles de vidas.',
+  stars: 4.6,
+  platform: 'HBO Max',
+  genre: 'Guerra / Drama',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2JpWjbhOciyhBxdt8uGhJiFHmLq7OCexokw&s'
+},
+{
+  id: 53,
+  title: 'The Martian',
+  year: 2015,
+  description: 'Un astronauta queda atrapado en Marte y debe ingeniárselas para sobrevivir hasta ser rescatado.',
+  stars: 4.5,
+  platform: 'Disney+',
+  genre: 'Ciencia ficción / Aventura',
+  age: 13,
+  img: 'https://www.bnl.gov/today/body_pics/2016/09/martian-poster-720px.jpg'
+},
+{
+  id: 54,
+  title: 'Gone Girl',
+  year: 2014,
+  description: 'Un hombre se convierte en el principal sospechoso cuando su esposa desaparece misteriosamente.',
+  stars: 4.3,
+  platform: 'Star+',
+  genre: 'Suspenso / Misterio',
+  age: 18,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Dfb2C_DTMqJk6VyeqTk5UAeEPnqu0TIHog&s'
+},
+{
+  id: 55,
+  title: 'The Green Mile',
+  year: 1999,
+  description: 'Un guardia de prisión conoce a un recluso con habilidades extraordinarias que cambiarán su vida.',
+  stars: 4.8,
+  platform: 'HBO Max',
+  genre: 'Drama / Fantasía',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGodAS2M6iM-icEs_AsUhdNybsHd87ZsxvfQ&s'
+},
+{
+  id: 56,
+  title: 'Interstella 5555',
+  year: 2003,
+  description: 'Una banda alienígena es secuestrada y convertida en un éxito musical en la Tierra en esta película musical de Daft Punk.',
+  stars: 4.2,
+  platform: 'YouTube',
+  genre: 'Animación / Música / Ciencia ficción',
+  age: 10,
+  img: 'https://www.rhino.com/sites/g/files/g2000012691/files/styles/landing_banner/public/2024-10/dp1no.jpg?itok=7uTg-ieu'
+},
+{
+  id: 57,
+  title: 'Prisoners',
+  year: 2013,
+  description: 'Un padre desesperado busca a su hija desaparecida mientras la policía sigue una pista inquietante.',
+  stars: 4.6,
+  platform: 'Prime Video',
+  genre: 'Suspenso / Crimen',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0BbOzsagvwCLvdjP--6M6yp_gWY0MpxGWg&s'
+},
+{
+  id: 58,
+  title: 'The Curious Case of Benjamin Button',
+  year: 2008,
+  description: 'La historia de un hombre que nace viejo y rejuvenece con el tiempo.',
+  stars: 4.4,
+  platform: 'HBO Max',
+  genre: 'Drama / Fantasía',
+  age: 13,
+  img: 'https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/05042fc5-444f-4313-a375-827c5bc69a06/e9daa47b-7e79-44da-9b58-578286964334?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500'
+},
+{
+  id: 59,
+  title: 'No Country for Old Men',
+  year: 2007,
+  description: 'Un cazador encuentra dinero robado y se convierte en el objetivo de un asesino implacable.',
+  stars: 4.5,
+  platform: 'Netflix',
+  genre: 'Crimen / Suspenso',
+  age: 18,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhbTsaV0ffDkcqGf_akSjQDsZosCfLz6eDLg&s'
+},
+{
+  id: 60,
+  title: 'The Secret Life of Walter Mitty',
+  year: 2013,
+  description: 'Un hombre común emprende una aventura extraordinaria mientras busca una foto perdida.',
+  stars: 4.2,
+  platform: 'Disney+',
+  genre: 'Aventura / Comedia / Drama',
+  age: 10,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvaLIzPobgDncWEPlWHHhP1WzqoAKrtlYbwA&s'
+},
+{
+  id: 61,
+  title: 'Logan',
+  year: 2017,
+  description: 'En un futuro cercano, un Wolverine envejecido debe proteger a una joven con habilidades similares a las suyas.',
+  stars: 4.7,
+  platform: 'Disney+',
+  genre: 'Acción / Drama / Ciencia ficción',
+  age: 18,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaVUYf7Yb_pC02rraDdzEaWzXNL43YcanxcQ&s'
+},
+{
+  id: 62,
+  title: 'A Beautiful Mind',
+  year: 2001,
+  description: 'La vida del genio matemático John Nash, quien lucha contra la esquizofrenia mientras deja una huella en el mundo.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Biografía / Drama',
+  age: 13,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwARcXZExI7RcG3x0agWRQPeV16DRIOffDVA&s'
+},
+{
+  id: 63,
+  title: 'Scott Pilgrim vs. the World',
+  year: 2010,
+  description: 'Scott debe derrotar a los siete malvados exnovios de Ramona Flowers para ganar su corazón.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Acción / Comedia / Fantasía',
+  age: 13,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk6_YALptRSMO4mX1voSP4JaawvOfBsbYzrA&s'
+},
+{
+  id: 64,
+  title: 'La La Land in Concert',
+  year: 2019,
+  description: 'Una presentación musical en vivo basada en la película original, acompañada por orquesta.',
+  stars: 4.1,
+  platform: 'YouTube',
+  genre: 'Música / Concierto',
+  age: 12,
+  img: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f8b2ef92655071.5e505bf7132ab.png'
+},
+{
+  id: 65,
+  title: 'The Shape of Water',
+  year: 2017,
+  description: 'Una mujer forma una conexión inesperada con una criatura acuática capturada por el gobierno.',
+  stars: 4.3,
+  platform: 'HBO Max',
+  genre: 'Fantasía / Drama / Romance',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVk3GoB7bM834D2RCnytFIj_hiIZiUhkRQww&s'
+},
+{
+  id: 66,
+  title: 'Dallas Buyers Club',
+  year: 2013,
+  description: 'La historia real de un hombre que lucha por medicamentos experimentales tras ser diagnosticado con VIH.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Drama / Biografía',
+  age: 18,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWMAtjzLiZ-NK5F_fFSa8n7XSW9G73i17r8Q&s'
+},
+{
+  id: 67,
+  title: 'Room',
+  year: 2015,
+  description: 'Una madre y su hijo intentan escapar de un pequeño cuarto donde han vivido cautivos durante años.',
+  stars: 4.6,
+  platform: 'Netflix',
+  genre: 'Drama / Suspenso',
+  age: 16,
+  img: 'https://m.media-amazon.com/images/M/MV5BMGFhMjhjN2ItNTZkZi00ZDdkLThkNzEtYTJhZjM1NDMxNGYzXkEyXkFqcGc@._V1_.jpg'
+},
+{
+  id: 68,
+  title: 'The Big Short',
+  year: 2015,
+  description: 'Un grupo de inversionistas predice la crisis financiera de 2008 y apuesta contra el sistema bancario.',
+  stars: 4.4,
+  platform: 'Netflix',
+  genre: 'Drama / Biografía',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg_hGhPpQ8U9ryMEnLIhgLWAdPZGkavtLUw&s'
+},
+{
+  id: 69,
+  title: 'Gran Torino',
+  year: 2008,
+  description: 'Un veterano solitario forma un vínculo inesperado con sus vecinos en medio de conflictos barriales.',
+  stars: 4.6,
+  platform: 'HBO Max',
+  genre: 'Drama',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPye4ttniZ3wTg5WJjNWkHpuJr6TbSj0_oZg&s'
+},
+{
+  id: 70,
+  title: 'The Pianist',
+  year: 2002,
+  description: 'La historia real de un pianista judío que intenta sobrevivir durante la ocupación nazi.',
+  stars: 4.7,
+  platform: 'Prime Video',
+  genre: 'Drama / Biografía / Guerra',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBWQt7pYKLhlMJxlKTxyQYLNOY9Xi15HTZQ&s'
+},
+{
+  id: 71,
+  title: 'The Intouchables',
+  year: 2011,
+  description: 'La amistad entre un aristócrata tetrapléjico y su carismático cuidador cambia la vida de ambos.',
+  stars: 4.8,
+  platform: 'Netflix',
+  genre: 'Comedia / Drama',
+  age: 12,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPDVb2hLN7d2cBe2NOviZVq2PhwrJSTjCyg&s'
+},
+{
+  id: 72,
+  title: 'Birdman',
+  year: 2014,
+  description: 'Un actor en decadencia intenta recuperar su fama mientras lidia con su alter ego.',
+  stars: 4.3,
+  platform: 'Star+',
+  genre: 'Comedia / Drama',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ECxN6r4YEhfZFIUBXJVNGlF2bjPWppJx1Q&s'
+},
+{
+  id: 73,
+  title: 'Silver Linings Playbook',
+  year: 2012,
+  description: 'Dos personas con vidas rotas encuentran una inesperada conexión a través del baile.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Romance / Comedia / Drama',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo3ktytnGxpJNazZ2w1leDc_bpHg5k1Btesg&s'
+},
+{
+  id: 74,
+  title: 'Edge of Tomorrow',
+  year: 2014,
+  description: 'Un soldado revive el mismo día una y otra vez mientras lucha contra una invasión alienígena.',
+  stars: 4.5,
+  platform: 'HBO Max',
+  genre: 'Acción / Ciencia ficción',
+  age: 13,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVlK3uIdVsT1YeJMfwUsw2tHFw_9QDKl8Ew&s'
+},
+{
+  id: 75,
+  title: 'The Nice Guys',
+  year: 2016,
+  description: 'Un detective y un matón improvisado trabajan juntos para resolver un caso lleno de humor y caos.',
+  stars: 4.4,
+  platform: 'Netflix',
+  genre: 'Comedia / Acción',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8OkRYWwBVkP53YXbs0sEy9ETbz98HYvvcg&s'
+},
+{
+  id: 76,
+  title: 'Moonlight',
+  year: 2016,
+  description: 'La vida de un joven afroamericano contada en tres etapas mientras busca su identidad.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Drama',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOlBLh4s59jlX7v6sq3jC46UK2PfZlG4mVuw&s'
+},
+{
+  id: 77,
+  title: 'Hacksaw Ridge',
+  year: 2016,
+  description: 'La historia real de un médico militar que se negó a portar armas durante la Segunda Guerra Mundial.',
+  stars: 4.7,
+  platform: 'Prime Video',
+  genre: 'Guerra / Drama / Biografía',
+  age: 16,
+  img: 'https://w0.peakpx.com/wallpaper/48/874/HD-wallpaper-movie-hacksaw-ridge.jpg'
+},
+{
+  id: 78,
+  title: 'Arrival of a Train',
+  year: 1896,
+  description: 'Una de las primeras películas de la historia, mostrando la llegada de un tren a la estación.',
+  stars: 3.9,
+  platform: 'YouTube',
+  genre: 'Documental / Historia',
+  age: 0,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSdLaEGcCJy4AkdATsQI_QvHRwxfSs-XuVGA&s'
+},
+{
+  id: 79,
+  title: 'Inside Man',
+  year: 2006,
+  description: 'Un detective enfrenta a un maestro del robo en un asalto bancario lleno de giros.',
+  stars: 4.3,
+  platform: 'Netflix',
+  genre: 'Crimen / Suspenso',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs9pWwVw6DQSPQwnoMOb-k8C7AQDvndNjZ6Q&s'
+},
+{
+  id: 80,
+  title: 'Shutter Island',
+  year: 2010,
+  description: 'Un investigador llega a una isla remota para resolver la desaparición de una paciente psiquiátrica.',
+  stars: 4.6,
+  platform: 'Prime Video',
+  genre: 'Suspenso / Misterio',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlqoDTb7mUoZlIjg9megYmPxIQrdC5GGfT1Q&s'
+},
+{
+  id: 81,
+  title: 'Life of Pi',
+  year: 2012,
+  description: 'Un joven náufrago comparte un bote con un tigre de bengala en un viaje de supervivencia.',
+  stars: 4.4,
+  platform: 'Disney+',
+  genre: 'Aventura / Drama / Fantasía',
+  age: 10,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqSXWe-LBG5m2H3VOu_qX22UxuOW9exZDtGQ&s'
+},
+{
+  id: 82,
+  title: 'Ex Machina',
+  year: 2014,
+  description: 'Un programador es elegido para evaluar a una inteligencia artificial con un comportamiento inquietante.',
+  stars: 4.5,
+  platform: 'Prime Video',
+  genre: 'Ciencia ficción / Drama / Suspenso',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ccUAiL0UKpjNUJQ48QZINU5t45FLddrGgA&s'
+},
+{
+  id: 83,
+  title: 'Memento',
+  year: 2000,
+  description: 'Un hombre con pérdida de memoria a corto plazo intenta vengar la muerte de su esposa.',
+  stars: 4.6,
+  platform: 'HBO Max',
+  genre: 'Suspenso / Misterio',
+  age: 16,
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvBlhG5DnWJRGyO7gqPNrhPMpWkk9u4Bq8w&s'
+}
+];
+>>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361

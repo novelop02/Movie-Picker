@@ -4,6 +4,7 @@
 	import { getUserData } from "$lib/userInfo";
 	import "../app.css";
     import { page } from "$app/stores";
+    import { roulette } from "$lib/rouletteStore";
     
 	let {supabase,session} = data
 	$: ({supabase,session} = data)
@@ -32,14 +33,20 @@
 		{#if session !== null}
 			<a href="/{session.user.email}" class="btn btn-ghost">Mi Perfil</a>
 			<a href="/roulette" class="btn btn-ghost 2xl">Ruleta</a>
+			<span class="badge badge-md badge-primary ml-1 ">{$roulette.length} / 10</span>
 		{/if}
 	</div>
 	<!--Right side of navbar-->
 	<div class="flex items-center space-x-4">
+		{#if profile.age >= 18 && profile.age != undefined && session} 
+		<div class="flex items-center bg-red-500 text-white px-3 py-1 rounded-full shadow-md ">
+			<span class="font-semibold text-l"> +18 </span>
+		</div>
+		{/if}
   		{#if session == null}
     		<a class="btn btn-ghost text-xl" href="/login">Login</a>
 		{:else}
-			{#if profile.name != "" || profile.name != undefined}
+			{#if profile.name == "" && profile.name != undefined}
 				<div class="flex items-center bg-primary text-white px-4 py-1 rounded-full shadow-md">
 				<span class="font-semibold text-lg">{profile.name}</span>
 				</div>

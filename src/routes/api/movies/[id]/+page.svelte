@@ -6,6 +6,7 @@
     import { getUserData } from "$lib/userInfo.js";
     import { roulette, addMovie, MAX_MOVIES } from '$lib/rouletteStore';
     import { get } from 'svelte/store';
+    import { fade } from "svelte/transition";
 
     const wrapper = (props: RatingIconProps) => (anchor: any, _props: RatingIconProps) => Star(anchor, { ..._props, ...props });
 
@@ -19,10 +20,36 @@
     $: email = $page.params.email;
     
     let showLimitModal = false;
+<<<<<<< HEAD
 
     page.subscribe(async() =>{
         profile = await getUserData(supabase,session)
     });
+=======
+    let showToast = false;
+    let toastMessage = "";
+    let toastType = "success";    
+    let lastLoadedUser = "";
+    
+    $: if (session?.user?.email && session.user.email !== lastLoadedUser) {
+        lastLoadedUser = session.user.email; 
+        getUserData(supabase, session).then(p => {
+            if (p) {
+                profile = p;
+                if (!profile.movies_ids) profile.movies_ids = [];
+            }
+        });
+    }
+    
+    function triggerToast(message: string, type: "success" | "error" = "success"){
+      toastMessage = message;
+      toastType = type;
+      showToast = true;
+      setTimeout(() => {
+        showToast = false;
+      }, 2500)
+    }
+>>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
@@ -42,9 +69,21 @@
             return;
         }
         addMovie(selectedMovie);
-        alert("Pelicula añadida a la ruleta");
+        triggerToast("Película añadida a la ruleta", "success");
     }
 
+<<<<<<< HEAD
+=======
+    function rmvRoulette(){
+      // revisar si hay una pelicula releccionada
+      if(!selectedMovie) return;
+        const currentMovies = get(roulette);
+      // revisar el límite
+      removeMovie(selectedMovie.id);
+      triggerToast("Película eliminada de la ruleta", "error");
+    }
+
+>>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
     async function toogleFavorite(){ 
         const movieId = selectedMovie?.id;
 
@@ -59,6 +98,12 @@
             if (!profile.movies_ids) profile.movies_ids = [];// quita de fav
             profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movieId);
         }
+<<<<<<< HEAD
+=======
+        
+        //Actualizar Svelte reasignando la variable
+        profile = profile;
+>>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
         await saveProfile();
         console.log(profile.movies_ids);
     } 
@@ -129,6 +174,11 @@
                     + Ruleta
                 </button>
 
+<<<<<<< HEAD
+=======
+                  {/if}
+                <!--Boton favoritos -->
+>>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
                 {#if session}
                     <button onclick={toogleFavorite} class="text-3xl">
                     {#if isFavorite}
@@ -157,6 +207,24 @@
     </div>
     <div class="pt-4 center"><button class="btn btn-ghost" onclick={save_go}>Regresar</button></div>
   </div>
+  {#if showToast}
+    <div class="toast toast-top toast-end z-50" transition:fade={{ duration: 300 }}>
+        <div class="alert shadow-lg text-white font-semibold" 
+             class:alert-success={toastType === 'success'} 
+             class:bg-green-600={toastType === 'success'}
+             class:alert-error={toastType === 'error'}
+             class:bg-red-600={toastType === 'error'}>
+            
+            {#if toastType === 'success'}
+                <span>✅</span>
+            {:else}
+                <span>🗑️</span>
+            {/if}
+            
+            <span>{toastMessage}</span>
+        </div>
+    </div>
+  {/if}
 {:else}
   <div class="text-center text-gray-400 mt-20">Película no encontrada.</div>
 {/if}
