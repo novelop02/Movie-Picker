@@ -46,16 +46,19 @@
         profile = await getUserData(supabase,session)
     });
     
-    $:filteredMovies = movies.filter((movie: {title:string, genre:string})=> {
+    $:filteredMovies = movies.filter((movie: {title:string, genre:string, age:number})=> {
       //Filtrado por el titulo
       const titulo = movie.title.toLowerCase().includes(searchInput.toLowerCase());
 
       //Filtrado por el genero
       const esSeleccionado = generoSeleccionado === 'Todos';
 
+      //Filtrado por edad
+      const tieneEdad = movie.age <= profile.age
+
       const match = esSeleccionado || movie.genre.includes(generoSeleccionado);
 
-      return titulo && match;
+      return titulo && match && tieneEdad;
     });
 
     //Función para la Ruleta
@@ -191,7 +194,7 @@
         href={`/api/movies/${movie.id}`}
         class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10"
       >
-        <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors mt-8">
+        <span class="text-white text-base font-bold underline hover:text-blue-300 transition-colors mt-8">
           Ver detalles →
         </span>
       </a>
@@ -211,23 +214,16 @@
 
         <!--- boton ruleta --->
         <button 
-            class="btn btn-circle btn-sm border-none shadow-lg {$roulette.some(m => m.id === movie.id) ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-blue-500/80 text-white hover:bg-blue-600'}"
+            class="flex items-center btn btn-circle btn-sm border-none shadow-lg {$roulette.some(m => m.id === movie.id) ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-blue-500/80 text-white hover:bg-blue-600'}"
             on:click={(e) => toggleRoulette(movie, e)}
             title="Añadir a Ruleta"
         >
-            <span class="font-bold text-lg">
+            <span class="font-bold text-xl leading-none pb-2">
                 {$roulette.some(m => m.id === movie.id) ? '-' : '+'}
             </span>
         </button>
 
       </div>
-      
-      {#if profile?.movies_ids?.includes(movie.id)}
-         <div class="absolute top-2 left-2 z-10 text-yellow-400 drop-shadow-md pointer-events-none">
-            <Star fill="currentColor" size={20} />
-         </div>
-      {/if}
-
     </div>
   {/each}
 </div>
