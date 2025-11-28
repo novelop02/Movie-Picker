@@ -13,7 +13,7 @@
     }
 
 </script>
-<title>Login</title>
+
 <div class="hero min-h-screen bg-base-300">
     <div class="hero-content w-[800px]">
         <div class="flex flex-col">

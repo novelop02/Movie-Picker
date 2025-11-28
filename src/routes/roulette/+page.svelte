@@ -30,7 +30,6 @@
     }
 </script>
 
-<title>Ruleta de Películas</title>
 <div class="p-6 text-white min-h-screen flex flex-col items-center">
     <h1 class="text-3xl font-bold mb-8">🎬 Ruleta de Películas</h1>
 
@@ -65,10 +64,8 @@
         <div class="space-y-3">
             {#if $roulette.length === 0}
                 <p class="text-center text-gray-500 italic">No hay películas en la ruleta.</p>
-                <div class="flex flex-col items-center justify-center mt-10 space-y-6">
-                    <a href="/" class="btn btn-primary btn-lg px-8 rounded-full shadow-xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 text-white font-bold gap-2">🔍Explorar Películas</a>
-                </div>
-            {:else}
+            {/if}
+
             {#each $roulette as movie (movie.id)}
                 <div class="group bg-gray-800 p-4 rounded-lg flex items-center justify-between shadow-md hover:bg-gray-750 transition-colors relative">
                     <span class="text-lg font-medium">{movie.title}</span>
@@ -77,12 +74,16 @@
                     <button
                         class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 absolute right-4 text-red-400 hover:text-red-500 text-2xl font-bold"
                         on:click={() => handleRemove(movie.id)}
-                        title="Eliminar">
+                        title="Eliminar"
+                    >
                         &times;
                     </button>
                 </div>
             {/each}
-            {/if}
+        </div>
+        
+        <div class="mt-4 text-right text-sm text-gray-500">
+            {$roulette.length} / 10 películas
         </div>
     </div>
 </div>
