@@ -4,7 +4,7 @@
     import { goto } from "$app/navigation";
     import { Rating, Star, type RatingIconProps } from "flowbite-svelte";
     import { getUserData } from "$lib/userInfo.js";
-    import { roulette, addMovie, MAX_MOVIES } from '$lib/rouletteStore';
+    import { roulette, addMovie, MAX_MOVIES, removeMovie } from '$lib/rouletteStore';
     import { get } from 'svelte/store';
     import { fade } from "svelte/transition";
 
@@ -16,16 +16,12 @@
     let movies:any = []
     $: id = $page.params.id;
     let isFavorite = false
-    let profile:any = []
+    let profile:any = { movies_ids: [] };
+    $: isFavorite = profile?.movies_ids?.includes(Number(id)) ?? false;
     $: email = $page.params.email;
-    
+    $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
+    $: isinRoulette = $roulette.some(m => m.id === selectedMovie?.id);
     let showLimitModal = false;
-<<<<<<< HEAD
-
-    page.subscribe(async() =>{
-        profile = await getUserData(supabase,session)
-    });
-=======
     let showToast = false;
     let toastMessage = "";
     let toastType = "success";    
@@ -49,20 +45,16 @@
         showToast = false;
       }, 2500)
     }
->>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
 
     onMount(async() =>{
         const response = await fetch('/api/movies')
         movies = await response.json()
     })
-    $: selectedMovie = movies.find((movie: { id: number; title: string }) => movie.id === Number(id));
-
+   
     // añadir a la ruleta
     function addToRoulette() {
         if (!selectedMovie) return;
-
         const currentMovies = get(roulette);
-
         // revisar el límite
         if (currentMovies.length >= MAX_MOVIES) {
             showLimitModal = true;
@@ -72,8 +64,6 @@
         triggerToast("Película añadida a la ruleta", "success");
     }
 
-<<<<<<< HEAD
-=======
     function rmvRoulette(){
       // revisar si hay una pelicula releccionada
       if(!selectedMovie) return;
@@ -83,30 +73,25 @@
       triggerToast("Película eliminada de la ruleta", "error");
     }
 
->>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
     async function toogleFavorite(){ 
         const movieId = selectedMovie?.id;
-
         if (!movieId) return;
-        isFavorite = !isFavorite;
+        if (!profile.movies_ids) profile.movies_ids = [];
         if (isFavorite) {
-            if (!profile.movies_ids) profile.movies_ids = [];// añade a fav
-            if (!profile.movies_ids.includes(movieId)) {// checa si no esta duplicado
+            // Si ya es favorito, lo quitamos
+            profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movieId);
+        } else {
+            // Si no es favorito, lo agregamos
+            if (!profile.movies_ids.includes(movieId)) {
                 profile.movies_ids.push(movieId);
             }
-        } else {
-            if (!profile.movies_ids) profile.movies_ids = [];// quita de fav
-            profile.movies_ids = profile.movies_ids.filter((item: number) => item !== movieId);
         }
-<<<<<<< HEAD
-=======
         
         //Actualizar Svelte reasignando la variable
         profile = profile;
->>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
         await saveProfile();
-        console.log(profile.movies_ids);
-    } 
+    }
+
 
     function save_go(){
       saveProfile()
@@ -146,9 +131,11 @@
 </script>
 
 {#if selectedMovie}
+<title>{selectedMovie.title}</title>
   <div class="max-w-5xl mx-auto mt-10 p-6 bg-base-200 rounded-3xl shadow-xl text-white">
     <div class="flex flex-col md:flex-row gap-8">
       <!-- Imagen -->
+       
       <div class="shrink-0 w-full md:w-1/2">
         <img
           src={selectedMovie.img}
@@ -166,23 +153,31 @@
             <!-- Contenedor de botones -->
             <div class="flex items-center gap-3">
                 <!-- Botón Ruleta -->
-                <button 
-                    onclick={addToRoulette}
-                    class="btn btn-sm btn-info text-white"
-                    title="Añadir a Ruleta"
-                >
-                    + Ruleta
-                </button>
+                 {#if !isinRoulette}
+                  <button
+                      onclick={addToRoulette}
+                      class="btn btn-sm btn-info text-white"
+                      title="Añadir a Ruleta"
+                      
+                  >
+                      + Ruleta
+                  </button>
+                  {:else}
+                  <button
+                      onclick={rmvRoulette}
+                      class="btn btn-sm btn-error text-white"
+                      title="Añadir a Ruleta"
+                      
+                  >
+                      - Ruleta
+                  </button>
 
-<<<<<<< HEAD
-=======
                   {/if}
                 <!--Boton favoritos -->
->>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
                 {#if session}
                     <button onclick={toogleFavorite} class="text-3xl">
                     {#if isFavorite}
-                    ⭐
+                    ★
                     {:else}
                     ☆
                     {/if}
@@ -226,6 +221,7 @@
     </div>
   {/if}
 {:else}
+  <title>No encontrada</title>
   <div class="text-center text-gray-400 mt-20">Película no encontrada.</div>
 {/if}
 

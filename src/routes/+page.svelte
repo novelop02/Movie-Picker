@@ -114,6 +114,7 @@
     }
 </script>
 
+<title>Movie Picker</title>
 <div class="min-h-screen bg-base-300 flex flex-col items-center py-10 px-4">
   <!-- Título y acciones -->
   <div class="text-center mb-10 p-5">
@@ -132,7 +133,7 @@
 
     <!-- Buscador -->
     <div class="flex flex-col md:flex-row gap-4 w-full max-w-2xl mx-auto mt-8 mb-1">
-      <div class="relative flex-grow">
+      <div class="relative grow">
         <svg xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -153,7 +154,7 @@
         />
       </div>
 
-      <div class="form-control w-full md:w-auto md:min-w-[10rem]">
+      <div class="form-control w-full md:w-auto md:min-w-40">
             <select 
                 class="select select-bordered w-full **bg-white text-gray-900** text-lg rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-primary"
                 bind:value={generoSeleccionado}
@@ -170,11 +171,7 @@
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
 
   {#each filteredMovies as movie}
-<<<<<<< HEAD
-    <div
-=======
     <div class="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-800/50 transition-all duration-300">
->>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
       
       <div class="w-full aspect-video overflow-hidden bg-black">
         <img
@@ -194,18 +191,6 @@
         href={`/api/movies/${movie.id}`}
         class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-4 backdrop-blur-sm cursor-pointer z-10"
       >
-<<<<<<< HEAD
-        <p class="text-white text-sm font-medium">
-          <a href={`/api/movies/${movie.id}`}>Ver detalles →</a>
-        </p>
-        <button on:click={toogleFavorite} class="absolute top-2 right-2 m-3">
-          {#if isFavorite}
-            ⭐
-          {:else}
-            ☆
-          {/if}
-        </button>
-=======
         <span class="text-white text-base font-medium underline hover:text-blue-300 transition-colors mt-8">
           Ver detalles →
         </span>
@@ -235,7 +220,6 @@
             </span>
         </button>
 
->>>>>>> a6fb01303d557caec1bf5f1dd1f0024623992361
       </div>
       
       {#if profile?.movies_ids?.includes(movie.id)}
