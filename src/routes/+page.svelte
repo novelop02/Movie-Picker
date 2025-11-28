@@ -11,6 +11,7 @@
     let profile: any = {}
     let searchInput: string = ""
     let isFavorite = false
+    let filteredMovies:any = []
 
 
   //Aqui agrego las nuevas variables que van a servir para filtrar
@@ -46,20 +47,24 @@
         profile = await getUserData(supabase,session)
     });
     
-    $:filteredMovies = movies.filter((movie: {title:string, genre:string, age:number})=> {
-      //Filtrado por el titulo
+    // Apply filters only if session exists
+$: filteredMovies = session
+  ? movies.filter((movie: { title: string; genre: string; age: number }) => {
+      // Filtrado por el título
       const titulo = movie.title.toLowerCase().includes(searchInput.toLowerCase());
 
-      //Filtrado por el genero
+      // Filtrado por el género
       const esSeleccionado = generoSeleccionado === 'Todos';
+      const match = esSeleccionado || movie.genre.toLowerCase().includes(generoSeleccionado.toLowerCase());
 
-      //Filtrado por edad
-      const tieneEdad = movie.age <= profile.age
-
-      const match = esSeleccionado || movie.genre.includes(generoSeleccionado);
+      // Filtrado por edad (solo si profile.age está definido)
+      const tieneEdad = profile?.age ? movie.age <= profile.age : true;
 
       return titulo && match && tieneEdad;
-    });
+    })
+  : movies; // Si no hay sesión, mostrar todas las películas
+
+    
 
     //Función para la Ruleta
     function toggleRoulette(movie: any, event: Event) {
